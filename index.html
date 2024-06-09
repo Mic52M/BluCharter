@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giri in Barca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo2-removebg-preview.png" alt="Logo" class="logo-img">
+            </div>
+            <h1 data-aos="fade-down">Giri in Barca</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#tours"><i class="fas fa-ship"></i> Tour</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> Chi Siamo</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contatti</a></li>
+                    <li><a href="https://giroinbarca.setmore.com/beta" target="_blank"><i class="fas fa-calendar-alt"></i> Prenotazioni</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="home" class="hero" data-aos="fade-up">
+        <div class="overlay"></div>
+        <div class="container">
+            <h2 data-aos="fade-in" data-aos-delay="500">Esplora il Mare con Noi</h2>
+            <p data-aos="fade-in" data-aos-delay="1000">Prenota il tuo giro in barca e vivi un'esperienza indimenticabile!</p>
+            <a href="https://giroinbarca.setmore.com/beta" target="_blank" class="btn" data-aos="fade-in" data-aos-delay="1500">Prenota Ora</a>
+        </div>
+    </section>
+    <section id="tours" class="tours" data-aos="fade-right">
+        <div class="container">
+            <h2>I Nostri Tour</h2>
+            <div class="tour-card">
+                <h3>Tour al Tramonto</h3>
+                <p>Goditi un meraviglioso tramonto sul mare.</p>
+                <img src="https://via.placeholder.com/300x200" alt="Tour al Tramonto" loading="lazy">
+            </div>
+            <div class="tour-card">
+                <h3>Tour delle Isole</h3>
+                <p>Scopri le isole più belle della zona.</p>
+                <img src="https://via.placeholder.com/300x200" alt="Tour delle Isole" loading="lazy">
+            </div>
+            <div class="tour-card">
+                <h3>Tour di Pesca</h3>
+                <p>Un'avventura di pesca con esperti locali.</p>
+                <img src="https://via.placeholder.com/300x200" alt="Tour di Pesca" loading="lazy">
+            </div>
+        </div>
+    </section>
+    <section id="services" class="services" data-aos="fade-up">
+        <div class="container">
+            <h2>I Nostri Servizi</h2>
+            <div class="service-card">
+                <h3><i class="fas fa-anchor"></i> Noleggio Barche</h3>
+                <p>Noleggia una delle nostre barche per esplorare il mare in autonomia.</p>
+            </div>
+            <div class="service-card">
+                <h3><i class="fas fa-water"></i> Escursioni Guidate</h3>
+                <p>Partecipa alle nostre escursioni guidate per scoprire le meraviglie nascoste.</p>
+            </div>
+            <div class="service-card">
+                <h3><i class="fas fa-fish"></i> Battute di Pesca</h3>
+                <p>Unisciti a noi per un'emozionante battuta di pesca.</p>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about" data-aos="fade-left">
+        <div class="container">
+            <h2>Chi Siamo</h2>
+            <p>Siamo un'azienda specializzata in giri in barca, con anni di esperienza nel settore.</p>
+            <video id="about-video" src="Videos/VIDEOESSE.mp4" muted loading="lazy"></video>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials" data-aos="fade-up">
+        <div class="container">
+            <h2>Testimonianze</h2>
+            <div class="testimonial">
+                <p>"Un'esperienza indimenticabile! Il tour al tramonto è stato magnifico."</p>
+                <span>- Mario Rossi</span>
+            </div>
+            <div class="testimonial">
+                <p>"La miglior gita in barca che abbia mai fatto. Consigliatissimo!"</p>
+                <span>- Laura Bianchi</span>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact" data-aos="fade-up">
+        <div class="container">
+            <h2>Contatti</h2>
+            <form id="contact-form" data-aos="zoom-in">
+                <input type="text" name="from_name" placeholder="Nome" required>
+                <input type="email" name="user_email" placeholder="Email" required>
+                <textarea name="message" placeholder="Messaggio" required></textarea>
+                <button type="submit" class="btn">Invia</button>
+            </form>
+        </div>
+    </section>
+    <section id="map" class="map-section" data-aos="fade-up">
+        <div class="container">
+            <h2>Dove Siamo</h2>
+            <div id="map"></div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="logo-title">
+                <img src="images/logo2-removebg-preview.png" alt="Logo" class="logo-img">
+                <h1>Giri in Barca</h1>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+        </div>
+    </footer>
+    <div id="confirmation-banner">Messaggio inviato con successo!</div>
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="script.js"></script>
+</body>
+</html>
