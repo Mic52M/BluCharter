@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blu Charter</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container header-mobile">
+        <div class="logo-title">
+          <img src="images/LOGODEFINITIVO.jpeg" alt="Logo" class="logo-img" />
+          <h1>Blu Charter</h1>
+        </div>
+        <!-- nav desktop -->
+        <nav class="desktop-nav">
+          <ul>
+            <li>
+              <a href="#home"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#tours"><i class="fas fa-ship"></i> Tours</a>
+            </li>
+            <li>
+              <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+            </li>
+            <li>
+              <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </li>
+            <li>
+              <a href="prenotazioni.html"
+                ><i class="fas fa-calendar-alt"></i> Book Now</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <a href="index.html" class="language-switch"
+          ><i class="fas fa-globe"></i> IT</a
+        >
+      </div>
+    </header>
+
+    <section id="home" class="hero" data-aos="fade-up">
+      <div class="overlay"></div>
+      <div class="container">
+        <h2
+          data-aos="fade-in"
+          data-aos-delay="500"
+          style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); font-size: 3.5rem"
+        >
+          Explore the Sea with Us
+        </h2>
+        <p
+          data-aos="fade-in"
+          data-aos-delay="1000"
+          style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); font-size: 1.5rem"
+        >
+          Discover Monte Argentario from the sea, experience unique emotions
+          among coves, sunsets, and relaxation.
+        </p>
+        <a
+          href="prenotazioni.html"
+          target="_blank"
+          class="btn"
+          data-aos="fade-in"
+          data-aos-delay="1500"
+          style="
+            font-size: 1.2rem;
+            padding: 1.2rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+          "
+        >
+          Book Now
+        </a>
+      </div>
+      <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
+    </section>
+    <section id="services" class="services" data-aos="fade-up">
+      <div class="container">
+        <h2 class="services-title">A Unique Experience on Monte Argentario</h2>
+        <div class="service-intro">
+          <p>
+            Experience an unforgettable day aboard our exclusive boat: a unique
+            service to discover the wonders of Monte Argentario's sea, among
+            hidden coves, crystal clear waters, and breathtaking views. From
+            morning to sunset, let yourself be guided by the passion for the sea
+            and the comfort of an experience designed just for you and your
+            travel companions.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🛥️</div>
+            <h3 class="service-card-title">Day on the Boat</h3>
+            <div class="service-underline"></div>
+            <p class="service-time">
+              <strong>Daily Schedule</strong><br />9:15 AM - 5:45/6:00 PM
+            </p>
+            <p>
+              Departure from Porto Ercole harbor and navigation along the Monte
+              Argentario coast: swimming, relaxation, sun, and nature in an
+              exclusive setting.
+            </p>
+            <p class="service-extra">
+              Experience Monte Argentario's sea like never before!
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🍽️</div>
+            <h3 class="service-card-title">Seafood Lunch on Board</h3>
+            <div class="service-underline"></div>
+            <p class="service-time">During the day</p>
+            <p>
+              Enjoy a lunch with fresh seafood pasta prepared on board and, in
+              the afternoon, savor a delicious ice cream while admiring the sea:
+              a moment of taste and conviviality immersed in the beauty of Monte
+              Argentario.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🍹</div>
+            <h3 class="service-card-title">Sunset Aperitif</h3>
+            <div class="service-underline"></div>
+            <p class="service-time">
+              6:30 PM until 8:30 PM... or maybe even 9 PM, if the sunset is
+              special!
+            </p>
+            <p>
+              End your day with an exclusive aperitif on the boat: selected
+              drinks, appetizers, and the sun diving into Monte Argentario's
+              sea.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="tours" class="tours" data-aos="fade-right">
+      <div class="container">
+        <h2>Our Tours</h2>
+        <div class="tour-card">
+          <h3>Sunset Tour</h3>
+          <p>Enjoy a wonderful sunset over the sea.</p>
+          <img
+            src="https://via.placeholder.com/300x200"
+            alt="Sunset Tour"
+            loading="lazy"
+          />
+        </div>
+        <div class="tour-card">
+          <h3>Island Tour</h3>
+          <p>Discover the most beautiful islands in the area.</p>
+          <img
+            src="https://via.placeholder.com/300x200"
+            alt="Island Tour"
+            loading="lazy"
+          />
+        </div>
+        <div class="tour-card">
+          <h3>Fishing Tour</h3>
+          <p>A fishing adventure with local experts.</p>
+          <img
+            src="https://via.placeholder.com/300x200"
+            alt="Fishing Tour"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about" class="about" data-aos="fade-left">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          We are a company specialized in boat tours, with years of experience
+          in the sector.
+        </p>
+        <video
+          id="about-video"
+          src="Videos/VIDEOESSE.mp4"
+          muted
+          loading="lazy"
+        ></video>
+      </div>
+    </section>
+    <section id="testimonials" class="testimonials" data-aos="fade-up">
+      <div class="container">
+        <h2>Reviews</h2>
+        <div class="reviews-container">
+          <!-- Left side: Read Reviews -->
+          <div class="reviews-list">
+            <div class="reviews-carousel">
+              <div class="carousel-controls">
+                <button
+                  class="carousel-arrow"
+                  id="carousel-prev"
+                  aria-label="Previous"
+                  disabled
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span style="flex: 1"></span>
+                <button
+                  class="carousel-arrow"
+                  id="carousel-next"
+                  aria-label="Next"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="carousel-inner"></div>
+            </div>
+            <div id="review-lightbox">
+              <button class="close-lightbox" aria-label="Close">&times;</button>
+              <img src="" alt="Enlarged review image" />
+            </div>
+          </div>
+
+          <!-- Right side: Write Review -->
+          <div class="write-review">
+            <h3>Write a Review</h3>
+            <form id="review-form" class="review-form" onsubmit="return false;">
+              <div class="rating-input">
+                <label>Your rating:</label>
+                <div class="star-rating">
+                  <i class="far fa-star" data-rating="1"></i>
+                  <i class="far fa-star" data-rating="2"></i>
+                  <i class="far fa-star" data-rating="3"></i>
+                  <i class="far fa-star" data-rating="4"></i>
+                  <i class="far fa-star" data-rating="5"></i>
+                </div>
+              </div>
+              <!-- Honeypot field -->
+              <div style="display: none">
+                <input
+                  type="text"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+              <input
+                type="text"
+                name="reviewer_name"
+                placeholder="Your name"
+                required
+              />
+              <textarea
+                name="review_text"
+                placeholder="Tell us about your experience..."
+                required
+              ></textarea>
+              <div class="image-upload">
+                <label for="review-images">Add photos (optional)</label>
+                <div class="custom-file" id="drop-area">
+                  Drag images here or
+                  <span
+                    style="
+                      color: #1a75ff;
+                      text-decoration: underline;
+                      cursor: pointer;
+                    "
+                    >choose files</span
+                  >
+                </div>
+                <input
+                  type="file"
+                  id="review-images"
+                  name="review_images"
+                  multiple
+                  accept="image/*"
+                />
+                <div class="image-preview"></div>
+              </div>
+              <!-- reCAPTCHA -->
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+              ></div>
+              <button type="submit" class="btn">Publish Review</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact" data-aos="fade-up">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contact-form" data-aos="zoom-in">
+          <input type="text" name="from_name" placeholder="Name" required />
+          <input type="email" name="user_email" placeholder="Email" required />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone number (optional)"
+            pattern="[0-9\s\-\+\(\)]*"
+          />
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </div>
+    </section>
+    <section id="map" class="map-section" data-aos="fade-up">
+      <div class="container">
+        <h2>Where We Are</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.727944158947!2d11.204774512654708!3d42.390941733028335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13285c7fe13a717f%3A0xfea040991dd807f8!2sLungomare%20Andrea%20Doria%2C%2078%2F79%2C%2058018%20Porto%20Ercole%20GR!5e0!3m2!1sit!2sit!4v1747737138809!5m2!1sit!2sit"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div class="address-box" style="margin-top: 20px; text-align: center">
+          <i
+            class="fas fa-map-marker-alt"
+            style="color: #1a75ff; font-size: 1.3em; vertical-align: middle"
+          ></i>
+          <span style="font-size: 1.1em; font-weight: 500; margin-left: 8px">
+            Lungomare Andrea Doria, 78/79, 58018 Porto Ercole (GR)
+          </span>
+          <div
+            style="
+              font-size: 1em;
+              color: #333;
+              margin-top: 6px;
+              font-style: italic;
+            "
+          >
+            Pier <b>"Emporio del Sub"</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <!-- ABOUT US -->
+        <div class="footer-column about">
+          <img
+            src="images/LOGODEFINITIVO.jpeg"
+            alt="Logo"
+            class="footer-logo"
+          />
+          <p>
+            We've been experiencing the sea together since 1995. Discover our
+            excursions and rent quality boats.
+          </p>
+          <a href="#contact" class="footer-cta">Contact Us</a>
+          <div class="footer-contact">
+            <p>
+              Email:
+              <a href="mailto:blucharter@gmail.com">blucharter@gmail.com</a>
+            </p>
+            <p>Phone: <a href="tel:+393401234567">+39 392 025 4362</a></p>
+          </div>
+        </div>
+
+        <!-- USEFUL LINKS -->
+        <div class="footer-column links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tours">Tours</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="prenotazioni.html">Book Now</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FOLLOW US -->
+        <div class="footer-column social">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- SUBSCRIBE -->
+        <div class="footer-column subscribe">
+          <h4>Stay Updated</h4>
+          <form class="footer-subscribe">
+            <input type="email" placeholder="Your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>&copy; 2025 blucharter. All rights reserved.</small>
+        <br />
+        <small
+          >powered by
+          <a
+            href="https://mastroberti.online"
+            target="_blank"
+            style="color: #1a75ff; text-decoration: underline"
+            >Michele Mastroberti</a
+          ></small
+        >
+      </div>
+    </footer>
+
+    <div id="confirmation-banner">Message sent successfully!</div>
+    <div id="review-confirm-banner">Review sent successfully!</div>
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="reviews.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  </body>
+</html>

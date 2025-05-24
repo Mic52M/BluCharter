@@ -1,136 +1,436 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giri in Barca</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blu Charter</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo2-removebg-preview.png" alt="Logo" class="logo-img">
-            </div>
-            <h1 data-aos="fade-down">Giri in Barca</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#tours"><i class="fas fa-ship"></i> Tour</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> Chi Siamo</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contatti</a></li>
-                    <li><a href="https://giroinbarca.setmore.com/beta" target="_blank"><i class="fas fa-calendar-alt"></i> Prenotazioni</a></li>
-                </ul>
-            </nav>
+      <div class="container header-mobile">
+        <div class="logo-title">
+          <img src="images/LOGODEFINITIVO.jpeg" alt="Logo" class="logo-img" />
+          <h1>Blu Charter</h1>
         </div>
+        <!-- nav desktop -->
+        <nav class="desktop-nav">
+          <ul>
+            <li>
+              <a href="#home"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#tours"><i class="fas fa-ship"></i> Tour</a>
+            </li>
+            <li>
+              <a href="#about"><i class="fas fa-info-circle"></i> Chi Siamo</a>
+            </li>
+            <li>
+              <a href="#contact"><i class="fas fa-envelope"></i> Contatti</a>
+            </li>
+            <li>
+              <a href="prenotazioni.html"
+                ><i class="fas fa-calendar-alt"></i> Prenotazioni</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <a href="index_en.html" class="language-switch"
+          ><i class="fas fa-globe"></i> EN</a
+        >
+      </div>
     </header>
+
     <section id="home" class="hero" data-aos="fade-up">
-        <div class="overlay"></div>
-        <div class="container">
-            <h2 data-aos="fade-in" data-aos-delay="500">Esplora il Mare con Noi</h2>
-            <p data-aos="fade-in" data-aos-delay="1000">Prenota il tuo giro in barca e vivi un'esperienza indimenticabile!</p>
-            <a href="https://giroinbarca.setmore.com/beta" target="_blank" class="btn" data-aos="fade-in" data-aos-delay="1500">Prenota Ora</a>
-        </div>
-    </section>
-    <section id="tours" class="tours" data-aos="fade-right">
-        <div class="container">
-            <h2>I Nostri Tour</h2>
-            <div class="tour-card">
-                <h3>Tour al Tramonto</h3>
-                <p>Goditi un meraviglioso tramonto sul mare.</p>
-                <img src="https://via.placeholder.com/300x200" alt="Tour al Tramonto" loading="lazy">
-            </div>
-            <div class="tour-card">
-                <h3>Tour delle Isole</h3>
-                <p>Scopri le isole più belle della zona.</p>
-                <img src="https://via.placeholder.com/300x200" alt="Tour delle Isole" loading="lazy">
-            </div>
-            <div class="tour-card">
-                <h3>Tour di Pesca</h3>
-                <p>Un'avventura di pesca con esperti locali.</p>
-                <img src="https://via.placeholder.com/300x200" alt="Tour di Pesca" loading="lazy">
-            </div>
-        </div>
+      <div class="overlay"></div>
+      <div class="container">
+        <h2
+          data-aos="fade-in"
+          data-aos-delay="500"
+          style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); font-size: 3.5rem"
+        >
+          Esplora il Mare con Noi
+        </h2>
+        <p
+          data-aos="fade-in"
+          data-aos-delay="1000"
+          style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); font-size: 1.5rem"
+        >
+          Scopri l'Argentario dal mare, vivi emozioni uniche tra calette,
+          tramonti e relax.
+        </p>
+        <a
+          href="prenotazioni.html"
+          target="_blank"
+          class="btn"
+          data-aos="fade-in"
+          data-aos-delay="1500"
+          style="
+            font-size: 1.2rem;
+            padding: 1.2rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+          "
+        >
+          Prenota Ora
+        </a>
+      </div>
+      <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
     </section>
     <section id="services" class="services" data-aos="fade-up">
-        <div class="container">
-            <h2>I Nostri Servizi</h2>
-            <div class="service-card">
-                <h3><i class="fas fa-anchor"></i> Noleggio Barche</h3>
-                <p>Noleggia una delle nostre barche per esplorare il mare in autonomia.</p>
-            </div>
-            <div class="service-card">
-                <h3><i class="fas fa-water"></i> Escursioni Guidate</h3>
-                <p>Partecipa alle nostre escursioni guidate per scoprire le meraviglie nascoste.</p>
-            </div>
-            <div class="service-card">
-                <h3><i class="fas fa-fish"></i> Battute di Pesca</h3>
-                <p>Unisciti a noi per un'emozionante battuta di pesca.</p>
-            </div>
+      <div class="container">
+        <h2 class="services-title">Un'Esperienza Unica sull'Argentario</h2>
+        <div class="service-intro">
+          <p>
+            Vivi una giornata indimenticabile a bordo della nostra barca
+            esclusiva: un servizio unico per scoprire le meraviglie del mare
+            dell'Argentario, tra calette nascoste, acque cristalline e panorami
+            mozzafiato. Dal mattino al tramonto, lasciati guidare dalla passione
+            per il mare e dal comfort di un'esperienza pensata solo per te e i
+            tuoi compagni di viaggio.
+          </p>
         </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🛥️</div>
+            <h3 class="service-card-title">Giornata in Barca</h3>
+            <div class="service-underline"></div>
+            <p class="service-time">
+              <strong>Orario della giornata</strong><br />9:15 - 17:45/18:00
+            </p>
+            <p>
+              Partenza dal porto di Porto Ercole e navigazione lungo la costa
+              dell'Argentario: bagni, relax, sole e natura in una cornice
+              esclusiva.
+            </p>
+            <p class="service-extra">
+              Vivi il mare dell'Argentario come non l'hai mai visto!
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🍽️</div>
+            <h3 class="service-card-title">Pranzo di Pesce a Bordo</h3>
+            <div class="service-underline"></div>
+            <p class="service-time">Durante la giornata</p>
+            <p>
+              Assapora un pranzo con un primo di pesce fresco preparato a bordo
+              e, nel pomeriggio, gusta un delizioso gelato ammirando il mare: un
+              momento di gusto e convivialità immersi nella bellezza
+              dell'Argentario.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🍹</div>
+            <h3 class="service-card-title">Aperitivo al Tramonto</h3>
+            <div class="service-underline"></div>
+            <p class="service-time">
+              18:30 fino alle 20:30... o magari anche le 21, se il tramonto è
+              speciale!
+            </p>
+            <p>
+              Concludi la giornata con un aperitivo esclusivo in barca: drink
+              selezionati, stuzzichini e il sole che si tuffa nel mare
+              dell'Argentario.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="tours" class="tours" data-aos="fade-right">
+      <div class="container">
+        <h2>I Nostri Tour</h2>
+        <div class="tour-card">
+          <h3>Tour al Tramonto</h3>
+          <p>Goditi un meraviglioso tramonto sul mare.</p>
+          <img
+            src="https://via.placeholder.com/300x200"
+            alt="Tour al Tramonto"
+            loading="lazy"
+          />
+        </div>
+        <div class="tour-card">
+          <h3>Tour delle Isole</h3>
+          <p>Scopri le isole più belle della zona.</p>
+          <img
+            src="https://via.placeholder.com/300x200"
+            alt="Tour delle Isole"
+            loading="lazy"
+          />
+        </div>
+        <div class="tour-card">
+          <h3>Tour di Pesca</h3>
+          <p>Un'avventura di pesca con esperti locali.</p>
+          <img
+            src="https://via.placeholder.com/300x200"
+            alt="Tour di Pesca"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </section>
     <section id="about" class="about" data-aos="fade-left">
-        <div class="container">
-            <h2>Chi Siamo</h2>
-            <p>Siamo un'azienda specializzata in giri in barca, con anni di esperienza nel settore.</p>
-            <video id="about-video" src="Videos/VIDEOESSE.mp4" muted loading="lazy"></video>
-        </div>
+      <div class="container">
+        <h2>Chi Siamo</h2>
+        <p>
+          Siamo un'azienda specializzata in giri in barca, con anni di
+          esperienza nel settore.
+        </p>
+        <video
+          id="about-video"
+          src="Videos/Azimut40Sito.mp4"
+          muted
+          loading="lazy"
+        ></video>
+      </div>
     </section>
     <section id="testimonials" class="testimonials" data-aos="fade-up">
-        <div class="container">
-            <h2>Testimonianze</h2>
-            <div class="testimonial">
-                <p>"Un'esperienza indimenticabile! Il tour al tramonto è stato magnifico."</p>
-                <span>- Mario Rossi</span>
+      <div class="container">
+        <h2>Recensioni</h2>
+        <div class="reviews-container">
+          <!-- Left side: Read Reviews -->
+          <div class="reviews-list">
+            <div class="reviews-carousel">
+              <div class="carousel-controls">
+                <button
+                  class="carousel-arrow"
+                  id="carousel-prev"
+                  aria-label="Precedenti"
+                  disabled
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span style="flex: 1"></span>
+                <button
+                  class="carousel-arrow"
+                  id="carousel-next"
+                  aria-label="Successivi"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="carousel-inner"></div>
             </div>
-            <div class="testimonial">
-                <p>"La miglior gita in barca che abbia mai fatto. Consigliatissimo!"</p>
-                <span>- Laura Bianchi</span>
+            <div id="review-lightbox">
+              <button class="close-lightbox" aria-label="Chiudi">
+                &times;
+              </button>
+              <img src="" alt="Immagine recensione ingrandita" />
             </div>
+          </div>
+
+          <!-- Right side: Write Review -->
+          <div class="write-review">
+            <h3>Scrivi una Recensione</h3>
+            <form id="review-form" class="review-form" onsubmit="return false;">
+              <div class="rating-input">
+                <label>La tua valutazione:</label>
+                <div class="star-rating">
+                  <i class="far fa-star" data-rating="1"></i>
+                  <i class="far fa-star" data-rating="2"></i>
+                  <i class="far fa-star" data-rating="3"></i>
+                  <i class="far fa-star" data-rating="4"></i>
+                  <i class="far fa-star" data-rating="5"></i>
+                </div>
+              </div>
+              <!-- Honeypot field -->
+              <div style="display: none">
+                <input
+                  type="text"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+              <input
+                type="text"
+                name="reviewer_name"
+                placeholder="Il tuo nome"
+                required
+              />
+              <textarea
+                name="review_text"
+                placeholder="Racconta la tua esperienza..."
+                required
+              ></textarea>
+              <div class="image-upload">
+                <label for="review-images">Aggiungi foto (opzionale)</label>
+                <div class="custom-file" id="drop-area">
+                  Trascina qui le immagini o
+                  <span
+                    style="
+                      color: #1a75ff;
+                      text-decoration: underline;
+                      cursor: pointer;
+                    "
+                    >scegli file</span
+                  >
+                </div>
+                <input
+                  type="file"
+                  id="review-images"
+                  name="review_images"
+                  multiple
+                  accept="image/*"
+                />
+                <div class="image-preview"></div>
+              </div>
+              <!-- reCAPTCHA -->
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+              ></div>
+              <button type="submit" class="btn">Pubblica Recensione</button>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
     <section id="contact" class="contact" data-aos="fade-up">
-        <div class="container">
-            <h2>Contatti</h2>
-            <form id="contact-form" data-aos="zoom-in">
-                <input type="text" name="from_name" placeholder="Nome" required>
-                <input type="email" name="user_email" placeholder="Email" required>
-                <textarea name="message" placeholder="Messaggio" required></textarea>
-                <button type="submit" class="btn">Invia</button>
-            </form>
-        </div>
+      <div class="container">
+        <h2>Contatti</h2>
+        <form id="contact-form" data-aos="zoom-in">
+          <input type="text" name="from_name" placeholder="Nome" required />
+          <input type="email" name="user_email" placeholder="Email" required />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Numero di cellulare (opzionale)"
+            pattern="[0-9\s\-\+\(\)]*"
+          />
+          <textarea name="message" placeholder="Messaggio" required></textarea>
+          <button type="submit" class="btn">Invia</button>
+        </form>
+      </div>
     </section>
     <section id="map" class="map-section" data-aos="fade-up">
-        <div class="container">
-            <h2>Dove Siamo</h2>
-            <div id="map"></div>
+      <div class="container">
+        <h2>Dove Siamo</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.727944158947!2d11.204774512654708!3d42.390941733028335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13285c7fe13a717f%3A0xfea040991dd807f8!2sLungomare%20Andrea%20Doria%2C%2078%2F79%2C%2058018%20Porto%20Ercole%20GR!5e0!3m2!1sit!2sit!4v1747737138809!5m2!1sit!2sit"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div class="address-box" style="margin-top: 20px; text-align: center">
+          <i
+            class="fas fa-map-marker-alt"
+            style="color: #1a75ff; font-size: 1.3em; vertical-align: middle"
+          ></i>
+          <span style="font-size: 1.1em; font-weight: 500; margin-left: 8px">
+            Lungomare Andrea Doria, 78/79, 58018 Porto Ercole (GR)
+          </span>
+          <div
+            style="
+              font-size: 1em;
+              color: #333;
+              margin-top: 6px;
+              font-style: italic;
+            "
+          >
+            Pontile <b>"Emporio del Sub"</b>
+          </div>
         </div>
+      </div>
     </section>
+
     <footer>
-        <div class="container">
-            <div class="logo-title">
-                <img src="images/logo2-removebg-preview.png" alt="Logo" class="logo-img">
-                <h1>Giri in Barca</h1>
-            </div>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
+      <div class="footer-container">
+        <!-- CHI SIAMO -->
+        <div class="footer-column about">
+          <img
+            src="images/LOGODEFINITIVO.jpeg"
+            alt="Logo"
+            class="footer-logo"
+          />
+          <p>
+            Viviamo il mare insieme dal 1995. Scopri le nostre escursioni e
+            noleggia barche di qualità.
+          </p>
+          <a href="#contact" class="footer-cta">Contattaci</a>
+          <div class="footer-contact">
+            <p>
+              Email:
+              <a href="mailto:blucharter@gmail.com">blucharter@gmail.com</a>
+            </p>
+            <p>Telefono: <a href="tel:+393401234567">+39 392 025 4362</a></p>
+          </div>
         </div>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
+
+        <!-- LINK UTILI -->
+        <div class="footer-column links">
+          <h4>Link Utili</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tours">Tour</a></li>
+            <li><a href="#about">Chi Siamo</a></li>
+            <li><a href="#contact">Contatti</a></li>
+            <li>
+              <a href="prenotazioni.html">Prenotazioni</a>
+            </li>
+          </ul>
         </div>
+
+        <!-- SEGUICI -->
+        <div class="footer-column social">
+          <h4>Seguici</h4>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- ISCRIVITI -->
+        <div class="footer-column subscribe">
+          <h4>Rimani Aggiornato</h4>
+          <form class="footer-subscribe">
+            <input type="email" placeholder="La tua email" required />
+            <button type="submit">Iscriviti</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>&copy; 2025 blucharter. Tutti i diritti riservati.</small>
+        <br />
+        <small
+          >powered by
+          <a
+            href="https://mastroberti.online"
+            target="_blank"
+            style="color: #1a75ff; text-decoration: underline"
+            >Michele Mastroberti</a
+          ></small
+        >
+      </div>
     </footer>
+
     <div id="confirmation-banner">Messaggio inviato con successo!</div>
+    <div id="review-confirm-banner">Recensione inviata con successo!</div>
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script src="script.js"></script>
-</body>
+    <script src="reviews.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  </body>
 </html>

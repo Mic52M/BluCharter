@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prenotazioni | Giri in Barca</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/it.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body class="prenotazioni-page">
+    <header>
+      <div class="container header-mobile">
+        <div class="logo-title">
+          <img
+            src="images/logoBarca.jpeg"
+            alt="Logo"
+            class="logo-img"
+            loading="lazy"
+          />
+          <h1>Giri in Barca</h1>
+        </div>
+        <nav class="desktop-nav">
+          <ul>
+            <li>
+              <a href="index.html#home"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="index.html#tours"><i class="fas fa-ship"></i> Tour</a>
+            </li>
+            <li>
+              <a href="index.html#about"
+                ><i class="fas fa-info-circle"></i> Chi Siamo</a
+              >
+            </li>
+            <li>
+              <a href="index.html#contact"
+                ><i class="fas fa-envelope"></i> Contatti</a
+              >
+            </li>
+            <li>
+              <a href="prenotazioni.html" class="active"
+                ><i class="fas fa-calendar-alt"></i> Prenotazioni</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <style>
+      /* HEADER SEMPLICE */
+      .header-mobile {
+        background: #fff;
+        padding: 24px 0 16px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo-title {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #222;
+        transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+      }
+
+      .logo-title:hover {
+        transform: scale(1.07) rotate(-2deg);
+        box-shadow: 0 4px 16px rgba(0, 123, 255, 0.08);
+      }
+
+      .logo-title h1 {
+        margin-left: 18px;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+
+      .logo-img {
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #007bff;
+        background: #fff;
+      }
+    </style>
+
+    <main style="min-height: 60vh">
+      <section class="booking-section" style="margin-top: 120px">
+        <div class="container" style="max-width: 800px">
+          <h2>Prenota il tuo giro in barca</h2>
+
+          <!-- Progress Steps -->
+          <div class="booking-progress" data-aos="fade-up">
+            <div class="progress-step active" data-step="1">
+              <div class="step-number">1</div>
+              <div class="step-label">Numero Persone</div>
+            </div>
+            <div class="progress-step" data-step="2">
+              <div class="step-number">2</div>
+              <div class="step-label">Data</div>
+            </div>
+            <div class="progress-step" data-step="3">
+              <div class="step-number">3</div>
+              <div class="step-label">Dati</div>
+            </div>
+            <div class="progress-step" data-step="4">
+              <div class="step-number">4</div>
+              <div class="step-label">Conferma</div>
+            </div>
+          </div>
+
+          <!-- Step 1: Number of People -->
+          <form
+            id="booking-step1"
+            class="booking-form active"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3>Quante persone siete?</h3>
+            <div class="people-selector">
+              <div class="people-counter">
+                <button
+                  type="button"
+                  class="counter-btn minus"
+                  onclick="decrementPeople()"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+                <div class="counter-display">
+                  <span id="people-count">1</span>
+                  <span class="counter-label">persone</span>
+                </div>
+                <button
+                  type="button"
+                  class="counter-btn plus"
+                  onclick="incrementPeople()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="people-visual">
+                <div class="people-icons" id="people-icons">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="availability-info">
+                  <span class="max-people">Massimo 8 persone</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-next" onclick="nextStep(1)">
+              Avanti
+            </button>
+          </form>
+
+          <!-- Step 2: Date Selection -->
+          <form
+            id="booking-step2"
+            class="booking-form"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3>Scegli la data</h3>
+            <div class="calendar-container">
+              <div class="calendar-wrapper calendar-center">
+                <div class="calendar-center">
+                  <div id="calendar-flatpickr"></div>
+                  <div class="calendar-arrow-outer left">
+                    <button
+                      type="button"
+                      class="calendar-arrow-btn"
+                      id="calendar-prev-btn"
+                      aria-label="Mese precedente"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" stroke-width="2">
+                        <circle
+                          cx="16"
+                          cy="16"
+                          r="15"
+                          stroke="#007bff"
+                          stroke-width="2"
+                          fill="#fff"
+                        />
+                        <polyline
+                          points="19 24 11 16 19 8"
+                          stroke="#007bff"
+                          stroke-width="3"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="calendar-arrow-outer right">
+                    <button
+                      type="button"
+                      class="calendar-arrow-btn"
+                      id="calendar-next-btn"
+                      aria-label="Mese successivo"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" stroke-width="2">
+                        <circle
+                          cx="16"
+                          cy="16"
+                          r="15"
+                          stroke="#007bff"
+                          stroke-width="2"
+                          fill="#fff"
+                        />
+                        <polyline
+                          points="13 8 21 16 13 24"
+                          stroke="#007bff"
+                          stroke-width="3"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="calendar-legend">
+                  <div class="legend-item">
+                    <span class="legend-color available"></span>
+                    <span class="legend-text">Disponibile</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color limited"></span>
+                    <span class="legend-text">Pochi posti</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color unavailable"></span>
+                    <span class="legend-text">Non disponibile</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-group">
+              <button type="button" class="btn-prev" onclick="prevStep(2)">
+                Indietro
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep(2)">
+                Avanti
+              </button>
+            </div>
+          </form>
+
+          <!-- Step 3: Personal Information -->
+          <form id="booking-step3" class="booking-form">
+            <h3>I tuoi dati</h3>
+            <div class="form-group">
+              <label for="name">Nome e Cognome *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefono (opzionale)</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            <div class="button-group">
+              <button type="button" class="btn-prev" onclick="prevStep(3)">
+                Indietro
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep(3)">
+                Avanti
+              </button>
+            </div>
+          </form>
+
+          <!-- Step 4: Confirmation -->
+          <form id="booking-step4" class="booking-form">
+            <h3>Riepilogo Prenotazione</h3>
+            <div class="booking-summary">
+              <div class="summary-item">
+                <span class="summary-label">Numero Persone:</span>
+                <span id="summary-people" class="summary-value"></span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Data:</span>
+                <span id="summary-date" class="summary-value"></span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Nome:</span>
+                <span id="summary-name" class="summary-value"></span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Email:</span>
+                <span id="summary-email" class="summary-value"></span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Telefono:</span>
+                <span id="summary-phone" class="summary-value"></span>
+              </div>
+            </div>
+            <div class="button-group">
+              <button type="button" class="btn-prev" onclick="prevStep(4)">
+                Indietro
+              </button>
+              <button type="submit" class="btn-confirm">
+                Conferma Prenotazione
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <!-- CHI SIAMO -->
+        <div class="footer-column about">
+          <img
+            src="images/logoBarca.jpeg"
+            alt="Logo"
+            class="footer-logo"
+            loading="lazy"
+          />
+          <p>
+            Viviamo il mare insieme dal 1995. Scopri le nostre escursioni e
+            noleggia barche di qualità.
+          </p>
+          <a href="index.html#contact" class="footer-cta">Contattaci</a>
+          <div class="footer-contact">
+            <p>
+              Email: <a href="mailto:info@girinbarca.it">info@girinbarca.it</a>
+            </p>
+            <p>Telefono: <a href="tel:+393401234567">+39 340 123 4567</a></p>
+          </div>
+        </div>
+        <!-- LINK UTILI -->
+        <div class="footer-column links">
+          <h4>Link Utili</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#tours">Tour</a></li>
+            <li><a href="index.html#about">Chi Siamo</a></li>
+            <li><a href="index.html#contact">Contatti</a></li>
+            <li><a href="prenotazioni.html">Prenotazioni</a></li>
+          </ul>
+        </div>
+        <!-- SEGUICI -->
+        <div class="footer-column social">
+          <h4>Seguici</h4>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <!-- ISCRIVITI -->
+        <div class="footer-column subscribe">
+          <h4>Rimani Aggiornato</h4>
+          <form class="footer-subscribe">
+            <input type="email" placeholder="La tua email" required />
+            <button type="submit">Iscriviti</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>&copy; 2025 Giri in Barca. Tutti i diritti riservati.</small>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      let currentPeople = 1;
+      const maxPeople = 8;
+
+      function updatePeopleIcons() {
+        const iconsContainer = document.getElementById("people-icons");
+        iconsContainer.innerHTML = "";
+        for (let i = 0; i < currentPeople; i++) {
+          const icon = document.createElement("i");
+          icon.className = "fas fa-user";
+          iconsContainer.appendChild(icon);
+        }
+      }
+
+      function incrementPeople() {
+        if (currentPeople < maxPeople) {
+          currentPeople++;
+          document.getElementById("people-count").textContent = currentPeople;
+          updatePeopleIcons();
+        }
+      }
+
+      function decrementPeople() {
+        if (currentPeople > 1) {
+          currentPeople--;
+          document.getElementById("people-count").textContent = currentPeople;
+          updatePeopleIcons();
+        }
+      }
+
+      let selectedDate = "";
+      let calendarInstance = null;
+      document.addEventListener("DOMContentLoaded", function () {
+        const today = new Date();
+        const minDate = new Date(today);
+        minDate.setDate(today.getDate() + 3); // Minimum 3 days from today
+
+        calendarInstance = flatpickr("#calendar-flatpickr", {
+          locale: "it",
+          minDate: minDate,
+          inline: true,
+          yearSelectorType: "static",
+          minDate: minDate,
+          maxDate: new Date(minDate.getFullYear(), 11, 31),
+          onChange: function (selectedDates, dateStr) {
+            selectedDate = dateStr;
+            checkAvailability(dateStr);
+          },
+          onReady: function (selectedDates, dateStr, instance) {
+            const calendar = instance.calendarContainer;
+            calendar.classList.add("modern-calendar");
+            const monthDropdown = calendar.querySelector(
+              ".flatpickr-monthDropdown-months"
+            );
+            if (monthDropdown)
+              monthDropdown.classList.add("custom-month-dropdown");
+          },
+        });
+
+        document.getElementById("calendar-prev-btn").onclick = function () {
+          if (calendarInstance) calendarInstance.changeMonth(-1);
+        };
+        document.getElementById("calendar-next-btn").onclick = function () {
+          if (calendarInstance) calendarInstance.changeMonth(1);
+        };
+      });
+
+      function nextStep(currentStep) {
+        document
+          .querySelector(`#booking-step${currentStep}`)
+          .classList.remove("active");
+        document
+          .querySelector(`#booking-step${currentStep + 1}`)
+          .classList.add("active");
+        document
+          .querySelector(`.progress-step[data-step="${currentStep}"]`)
+          .classList.remove("active");
+        document
+          .querySelector(`.progress-step[data-step="${currentStep + 1}"]`)
+          .classList.add("active");
+
+        if (currentStep === 3) {
+          updateSummary();
+        }
+      }
+
+      function prevStep(currentStep) {
+        document
+          .querySelector(`#booking-step${currentStep}`)
+          .classList.remove("active");
+        document
+          .querySelector(`#booking-step${currentStep - 1}`)
+          .classList.add("active");
+        document
+          .querySelector(`.progress-step[data-step="${currentStep}"]`)
+          .classList.remove("active");
+        document
+          .querySelector(`.progress-step[data-step="${currentStep - 1}"]`)
+          .classList.add("active");
+      }
+
+      function updateSummary() {
+        document.getElementById("summary-people").textContent =
+          document.getElementById("people-count").textContent;
+        document.getElementById("summary-date").textContent = selectedDate;
+        document.getElementById("summary-name").textContent =
+          document.getElementById("name").value;
+        document.getElementById("summary-email").textContent =
+          document.getElementById("email").value;
+        document.getElementById("summary-phone").textContent =
+          document.getElementById("phone").value || "Non specificato";
+      }
+
+      function checkAvailability(date) {
+        // In futuro qui ci sarà la logica backend
+      }
+    </script>
+  </body>
+</html>
