@@ -308,108 +308,6 @@
           ></video>
         </div>
       </section>
-      <section id="testimonials" class="testimonials" data-aos="fade-up">
-        <div class="container">
-          <h2>Recensioni</h2>
-          <div class="reviews-container">
-            <!-- Left side: Read Reviews -->
-            <div class="reviews-list">
-              <div class="reviews-carousel">
-                <div class="carousel-controls">
-                  <button
-                    class="carousel-arrow"
-                    id="carousel-prev"
-                    aria-label="Precedenti"
-                    disabled
-                  >
-                    <i class="fas fa-chevron-left"></i>
-                  </button>
-                  <span style="flex: 1"></span>
-                  <button
-                    class="carousel-arrow"
-                    id="carousel-next"
-                    aria-label="Successivi"
-                  >
-                    <i class="fas fa-chevron-right"></i>
-                  </button>
-                </div>
-                <div class="carousel-inner"></div>
-              </div>
-              <div id="review-lightbox">
-                <button class="close-lightbox" aria-label="Chiudi">
-                  &times;
-                </button>
-                <img src="" alt="Immagine recensione ingrandita" />
-              </div>
-            </div>
-
-            <!-- Right side: Write Review -->
-            <div class="write-review">
-              <h3>Scrivi una Recensione</h3>
-              <form id="review-form" class="review-form" onsubmit="return false;">
-                <div class="rating-input">
-                  <label>La tua valutazione:</label>
-                  <div class="star-rating">
-                    <i class="far fa-star" data-rating="1"></i>
-                    <i class="far fa-star" data-rating="2"></i>
-                    <i class="far fa-star" data-rating="3"></i>
-                    <i class="far fa-star" data-rating="4"></i>
-                    <i class="far fa-star" data-rating="5"></i>
-                  </div>
-                </div>
-                <!-- Honeypot field -->
-                <div style="display: none">
-                  <input
-                    type="text"
-                    name="website"
-                    tabindex="-1"
-                    autocomplete="off"
-                  />
-                </div>
-                <input
-                  type="text"
-                  name="reviewer_name"
-                  placeholder="Il tuo nome"
-                  required
-                />
-                <textarea
-                  name="review_text"
-                  placeholder="Racconta la tua esperienza..."
-                  required
-                ></textarea>
-                <div class="image-upload">
-                  <label for="review-images">Aggiungi foto (opzionale)</label>
-                  <div class="custom-file" id="drop-area">
-                    Trascina qui le immagini o
-                    <span
-                      style="
-                        color: #1a75ff;
-                        text-decoration: underline;
-                        cursor: pointer;
-                      "
-                      >scegli file</span
-                    >
-                  </div>
-                  <input
-                    type="file"
-                    id="review-images"
-                    name="review_images"
-                    multiple
-                    accept="image/*"
-                  />
-                  <div class="image-preview"></div>
-                </div>
-                <!-- reCAPTCHA -->
-                <div
-                  class="g-recaptcha"
-                  data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                ></div>
-                <button type="submit" class="btn">Pubblica Recensione</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
       <section id="contact" class="contact" data-aos="fade-up">
         <div class="container">
           <h2>Contatti</h2>
@@ -561,7 +459,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    <script src="reviews.js"></script>
+    <!-- <script src="reviews.js"></script> -->
     <script src="cookie-banner.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </body>
