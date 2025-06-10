@@ -22,3 +22,13 @@ yarn-error.log*
 
 # Temporary files
 *.tmp
+
+# Node.js files (temporaneamente disabilitati)
+package.json
+package-lock.json
+server.js
+reviews.js
+moderate_reviews.js
+save_image.js
+reviews.json
+pending_reviews.json
