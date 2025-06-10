@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             html_message: body
         })
         .then(() => {
-            // 2. Invia AUTO-REPLY all’utente
+            // 2. Invia AUTO-REPLY all'utente
             return emailjs.send('service_dyfedal', 'template_9x58cph', {
                 name: nome,
                 title: messaggio,
@@ -116,4 +116,36 @@ document.addEventListener('DOMContentLoaded', function () {
         video.muted = true;
         video.style.border = 'none';
     });
+
+    // Cookie Banner Functions
+    function showCookieBanner() {
+        const cookieBanner = document.getElementById('cookieBanner');
+        if (!localStorage.getItem('cookieConsent')) {
+            cookieBanner.style.display = 'block';
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        document.getElementById('cookieBanner').style.display = 'none';
+    }
+
+    function openCookieSettings() {
+        // Open privacy policy in new tab
+        window.open(document.querySelector('.cookie-text a').href, '_blank');
+    }
+
+    // Show cookie banner when scrolling
+    let hasScrolled = false;
+    window.addEventListener('scroll', function() {
+        if (!hasScrolled && !localStorage.getItem('cookieConsent')) {
+            hasScrolled = true;
+            showCookieBanner();
+        }
+    });
+
+    // Show cookie banner when page loads if already scrolled
+    if (window.scrollY > 0 && !localStorage.getItem('cookieConsent')) {
+        showCookieBanner();
+    }
 });
