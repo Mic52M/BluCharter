@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blucharteryacht.com/sitemap.xml 
