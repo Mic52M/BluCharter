@@ -148,4 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.scrollY > 0 && !localStorage.getItem('cookieConsent')) {
         showCookieBanner();
     }
+
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        const img = new window.Image();
+        img.src = 'images/azimuthero.webp';
+        img.onload = function() {
+            hero.classList.add('loaded');
+        };
+    }
 });

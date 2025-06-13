@@ -98,6 +98,11 @@ header nav ul li a:hover::after {
     position: relative;
     color: white;
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(.4,1.4,.6,1);
+}
+.hero.loaded {
+    opacity: 1;
 }
 
 .hero .overlay {
