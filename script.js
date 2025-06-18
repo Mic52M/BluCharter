@@ -13,6 +13,37 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inizializzo EmailJS (una sola volta)
     emailjs.init('5I66iuj7Qf7_M54Pv'); // <-- il tuo public key
 
+    // Initialize Swiper carousels
+    const mainSwiper = new Swiper('.boat-swiper', {
+      direction: 'horizontal',
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // Initialize nested swipers
+    const nestedSwipers = document.querySelectorAll('.nested-swiper');
+    nestedSwipers.forEach((swiperElement) => {
+      new Swiper(swiperElement, {
+        direction: 'horizontal',
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+
     // 2) Slide-in header on first scroll
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {

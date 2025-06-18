@@ -41,13 +41,14 @@
     <link rel="canonical" href="https://blucharteryacht.com/" />
     <link rel="alternate" hreflang="it" href="https://blucharteryacht.com/" />
     <link rel="alternate" hreflang="en" href="https://blucharteryacht.com/index_en.html" />
-    <link rel="alternate" hreflang="x-default" href="https://blucharteryacht.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://blucharteryacht.com/" /> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -414,9 +415,111 @@
       <section id="about" class="about" data-aos="fade-left">
         <div class="container">
           <h2>Chi Siamo</h2>
-          <p class="about-highlight">
-            Vivi l'esperienza di un tour privato in barca lungo la costa dell'Argentario, a bordo della nostra Azimut 40. Comfort, riservatezza e relax in luoghi unici, lontano dalla folla. Solo tu, chi ami e la vera bellezza del mare Toscano.
-          </p>
+          <div class="experience-hero">
+            <div class="experience-icon">
+              <i class="fas fa-water"></i>
+            </div>
+            <div class="experience-text">
+              <span class="highlight">Vivi l'esperienza</span> di un tour privato in barca lungo la costa dell'Argentario, a bordo della nostra <span class="highlight">Azimut 40</span>.<br>
+              Comfort, riservatezza e relax in <span class="highlight">luoghi unici</span>, lontano dalla folla.<br>
+              Solo tu, chi ami e la vera bellezza del <span class="highlight">mare Toscano</span>.
+            </div>
+          </div>
+          
+          <!-- Aggiungiamo la sezione della barca -->
+          <div class="boat-specs">
+            <h3 class="boat-title">Azimut 40</h3>
+            
+            <!-- Galleria foto -->
+            <div class="boat-gallery">
+              <div class="swiper boat-swiper">
+                <div class="swiper-wrapper">
+                  <!-- Vista Esterna -->
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Vista Esterna</div>
+                    <img src="images/azimut40-exterior-1.jpg" alt="Azimut 40 - Vista esterna 1" class="boat-image" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Vista Esterna</div>
+                    <img src="images/azimut40-exterior-2.jpg" alt="Azimut 40 - Vista esterna 2" class="boat-image" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Vista Esterna</div>
+                    <img src="images/azimut40-exterior-3.jpg" alt="Azimut 40 - Vista esterna 3" class="boat-image" />
+                  </div>
+                  <!-- Interni -->
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Interni</div>
+                    <img src="images/azimut40-interior-1.jpg" alt="Azimut 40 - Interni 1" class="boat-image" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Interni</div>
+                    <img src="images/azimut40-interior-2.jpg" alt="Azimut 40 - Interni 2" class="boat-image" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Interni</div>
+                    <img src="images/azimut40-interior-3.jpg" alt="Azimut 40 - Interni 3" class="boat-image" />
+                  </div>
+                  <!-- Cabine -->
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Cabine</div>
+                    <img src="images/azimut40-cabin-1.jpg" alt="Azimut 40 - Cabina 1" class="boat-image" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Cabine</div>
+                    <img src="images/azimut40-cabin-2.jpg" alt="Azimut 40 - Cabina 2" class="boat-image" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="gallery-label">Cabine</div>
+                    <img src="images/azimut40-cabin-3.jpg" alt="Azimut 40 - Cabina 3" class="boat-image" />
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+                <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+              </div>
+            </div>
+
+            <!-- Specifiche tecniche -->
+            <div class="specs-grid">
+              <div class="spec-item">
+                <i class="fas fa-ruler"></i>
+                <h4>Dimensioni</h4>
+                <p>Lunghezza: 12.80 m<br>Larghezza: 3.80 m</p>
+              </div>
+              <div class="spec-item">
+                <i class="fas fa-bed"></i>
+                <h4>Cabine / Posti letto</h4>
+                <p>8 posti letto<br>2 bagni con doccia</p>
+              </div>
+              <div class="spec-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <h4>Prestazioni</h4>
+                <p>Autonomia: 250 miglia</p>
+              </div>
+              <div class="spec-item">
+                <i class="fas fa-snowflake"></i>
+                <h4>Comfort</h4>
+                <p>Aria condizionata<br>Riscaldamento</p>
+              </div>
+            </div>
+
+            <!-- Caratteristiche principali -->
+            <div class="boat-features">
+              <h4>Caratteristiche Principali</h4>
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Design esclusivo e linee moderne</li>
+                <li><i class="fas fa-check-circle"></i> Spazi interni ampi e confortevoli</li>
+                <li><i class="fas fa-check-circle"></i> Cabina armatoriale con letto matrimoniale</li>
+                <li><i class="fas fa-check-circle"></i> Due cabine ospiti con letti singoli</li>
+                <li><i class="fas fa-check-circle"></i> Dinette trasformabile in letto</li>
+                <li><i class="fas fa-check-circle"></i> Cucina completamente attrezzata</li>
+                <li><i class="fas fa-check-circle"></i> Bagno con doccia</li>
+                <li><i class="fas fa-check-circle"></i> Ampio spazio esterno per il relax</li>
+              </ul>
+            </div>
+          </div>
+
           <video
             id="about-video"
             src="Videos/Azimut40Sito.mp4"
@@ -524,8 +627,14 @@
         <div class="footer-column social">
           <h4>Seguici</h4>
           <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" title="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/blucharteryacht" target="_blank" title="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com" target="_blank" title="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+          <!-- Facebook Page Plugin -->
+          <div class="fb-page" data-href="https://www.facebook.com/blucharteryacht" data-tabs="timeline" data-width="340" data-height="180" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/blucharteryacht" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/blucharteryacht">Blu Charter Yacht</a>
+            </blockquote>
           </div>
         </div>
 
@@ -573,8 +682,9 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
-    <!-- <script src="reviews.js"></script> -->
+    <script src="swiper-init.js"></script>
     <script src="cookie-banner.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -599,5 +709,6 @@
             }
         });
     </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v19.0" nonce="fbplugin"></script>
   </body>
 </html>
