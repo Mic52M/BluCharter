@@ -99,7 +99,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -351,7 +351,7 @@
               font-size: 3.5rem;
             "
           >
-            Noleggia una barca e vivi l'Argentario
+            NOLEGGIA UNA BARCA E VIVI L'ARGENTARIO!
           </h1>
           <p
             data-aos="fade-in"
@@ -367,30 +367,35 @@
           </p>
           <a
             href="#contact"
-            class="btn"
+            class="blob-btn"
             data-aos="fade-in"
             data-aos-delay="1500"
-            style="
-              font-size: 1.2rem;
-              padding: 1.2rem 2.5rem;
-              display: inline-flex;
-              align-items: center;
-              gap: 0.7rem;
-            "
           >
             Prenota Ora
+            <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
           </a>
         </div>
         <div class="scroll-down" aria-hidden="true">
           <i class="fas fa-chevron-down"></i>
         </div>
       </section>
-      <section id="services" class="services-pro">
+      <section id="services" class="services-pro" data-aos="fade-up">
         <div class="container">
-          <h2 class="services-title">I nostri servizi</h2>
+          <h2 class="services-title" data-aos="fade-up">I nostri servizi</h2>
           <div class="services-cards">
             <!-- Giro in barca -->
-            <div class="service-pro-card">
+            <div
+              class="service-pro-card"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
               <div class="service-pro-header">
                 <h3>Giro in Barca</h3>
                 <span class="service-badge">Anche con pernotto</span>
@@ -409,7 +414,11 @@
               </div>
             </div>
             <!-- Pranzo a bordo -->
-            <div class="service-pro-card">
+            <div
+              class="service-pro-card"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
               <div class="service-pro-header">
                 <h3>Pranzo di Pesce a Bordo</h3>
                 <span class="service-badge">Cucina a bordo</span>
@@ -427,7 +436,11 @@
               </div>
             </div>
             <!-- Aperitivo -->
-            <div class="service-pro-card">
+            <div
+              class="service-pro-card"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
               <div class="service-pro-header">
                 <h3>Aperitivo al Tramonto</h3>
                 <span class="service-badge">Anche solo aperitivo</span>
@@ -480,187 +493,164 @@
           </div>
         </div>
       </section> -->
-      <section id="about" class="about" data-aos="fade-left">
+      <section id="about" class="about-section-v2" data-aos="fade-up">
         <div class="container">
-          <h2>Chi Siamo</h2>
-          <div class="experience-hero">
-            <div class="experience-icon">
-              <i class="fas fa-water"></i>
-            </div>
-            <div class="experience-text">
-              <span class="highlight">Vivi l'esperienza</span> di un tour
-              privato in barca lungo la costa dell'Argentario, a bordo della
-              nostra <span class="highlight">Azimut 40</span>.<br />
-              Comfort, riservatezza e relax in
-              <span class="highlight">luoghi unici</span>, lontano dalla
-              folla.<br />
-              Solo tu, chi ami e la vera bellezza del
-              <span class="highlight">mare Toscano</span>.
+          <!-- 1. Impact Intro -->
+          <div class="about-large-intro" data-aos="fade-up">
+            <span class="icon"><i class="fas fa-water"></i></span>
+            <h2>Vivi il mare, vivi l'Argentario.</h2>
+            <p>
+              Siamo più di un noleggio barche. Siamo custodi di esperienze
+              uniche. Con la nostra <span class="highlight">Azimut 40</span>, ti
+              portiamo lontano dalla folla, in angoli di paradiso che solo il
+              mare conosce. Comfort, esclusività e la vera bellezza della costa
+              toscana, pensati solo per te.
+            </p>
+          </div>
+
+          <!-- 2. Video Showcase -->
+          <div
+            class="video-showcase-v2"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3>Un'Anteprima della Tua Giornata</h3>
+            <div class="about-video-wrapper">
+              <video
+                id="aboutVideo"
+                src="Videos/Azimut40Sito.mp4"
+                muted
+                controls
+                autoplay
+                loop
+              ></video>
             </div>
           </div>
 
-          <!-- Aggiungiamo la sezione della barca -->
-          <div class="boat-specs">
-            <h3 class="boat-title">Azimut 40</h3>
-
-            <!-- Galleria foto -->
-            <div class="boat-gallery">
-              <div class="swiper boat-swiper">
-                <div class="swiper-wrapper">
-                  <!-- Vista Esterna -->
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Vista Esterna</div>
-                    <img
-                      src="images/azimut40-exterior-1.jpg"
-                      alt="Azimut 40 - Vista esterna 1"
-                      class="boat-image"
-                    />
+          <!-- 3. Boat Details -->
+          <div
+            class="boat-details-interactive"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <ul class="boat-tabs-nav">
+              <li class="active" data-tab="gallery">Galleria</li>
+              <li data-tab="specs">Dettagli Tecnici</li>
+              <li data-tab="features">Comfort a Bordo</li>
+            </ul>
+            <div class="boat-tab-content">
+              <!-- Gallery Pane -->
+              <div id="tab-gallery" class="tab-pane active">
+                <div class="swiper boat-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img
+                        src="images/azimut40-exterior-1.jpg"
+                        alt="Azimut 40 - Esterno"
+                        class="boat-image"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="images/azimut40-interior-1.jpg"
+                        alt="Azimut 40 - Interni"
+                        class="boat-image"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="images/azimut40-cabin-1.jpg"
+                        alt="Azimut 40 - Cabina"
+                        class="boat-image"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="images/azimut40-exterior-2.jpg"
+                        alt="Azimut 40 - Esterno"
+                        class="boat-image"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="images/azimut40-interior-2.jpg"
+                        alt="Azimut 40 - Interni"
+                        class="boat-image"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="images/azimut40-cabin-2.jpg"
+                        alt="Azimut 40 - Cabina"
+                        class="boat-image"
+                      />
+                    </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Vista Esterna</div>
-                    <img
-                      src="images/azimut40-exterior-2.jpg"
-                      alt="Azimut 40 - Vista esterna 2"
-                      class="boat-image"
-                    />
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-next">
+                    <i class="fas fa-chevron-right"></i>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Vista Esterna</div>
-                    <img
-                      src="images/azimut40-exterior-3.jpg"
-                      alt="Azimut 40 - Vista esterna 3"
-                      class="boat-image"
-                    />
-                  </div>
-                  <!-- Interni -->
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Interni</div>
-                    <img
-                      src="images/azimut40-interior-1.jpg"
-                      alt="Azimut 40 - Interni 1"
-                      class="boat-image"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Interni</div>
-                    <img
-                      src="images/azimut40-interior-2.jpg"
-                      alt="Azimut 40 - Interni 2"
-                      class="boat-image"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Interni</div>
-                    <img
-                      src="images/azimut40-interior-3.jpg"
-                      alt="Azimut 40 - Interni 3"
-                      class="boat-image"
-                    />
-                  </div>
-                  <!-- Cabine -->
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Cabine</div>
-                    <img
-                      src="images/azimut40-cabin-1.jpg"
-                      alt="Azimut 40 - Cabina 1"
-                      class="boat-image"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Cabine</div>
-                    <img
-                      src="images/azimut40-cabin-2.jpg"
-                      alt="Azimut 40 - Cabina 2"
-                      class="boat-image"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="gallery-label">Cabine</div>
-                    <img
-                      src="images/azimut40-cabin-3.jpg"
-                      alt="Azimut 40 - Cabina 3"
-                      class="boat-image"
-                    />
+                  <div class="swiper-button-prev">
+                    <i class="fas fa-chevron-left"></i>
                   </div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next">
-                  <i class="fas fa-chevron-right"></i>
+              </div>
+              <!-- Specs Pane -->
+              <div id="tab-specs" class="tab-pane">
+                <div class="boat-specs-grid">
+                  <div class="spec-item">
+                    <i class="fas fa-ruler"></i>
+                    <h4>Dimensioni</h4>
+                    <p>Lunghezza: 12.80 m<br />Larghezza: 3.80 m</p>
+                  </div>
+                  <div class="spec-item">
+                    <i class="fas fa-bed"></i>
+                    <h4>Posti Letto</h4>
+                    <p>2 cabine, 8 posti letto</p>
+                  </div>
+                  <div class="spec-item">
+                    <i class="fas fa-shower"></i>
+                    <h4>Bagni</h4>
+                    <p>2 bagni con doccia</p>
+                  </div>
+                  <div class="spec-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h4>Velocità</h4>
+                    <p>Massima: 30 nodi</p>
+                  </div>
                 </div>
-                <div class="swiper-button-prev">
-                  <i class="fas fa-chevron-left"></i>
-                </div>
               </div>
-            </div>
-
-            <!-- Specifiche tecniche -->
-            <div class="specs-grid">
-              <div class="spec-item">
-                <i class="fas fa-ruler"></i>
-                <h4>Dimensioni</h4>
-                <p>Lunghezza: 12.80 m<br />Larghezza: 3.80 m</p>
+              <!-- Features Pane -->
+              <div id="tab-features" class="tab-pane">
+                <ul class="boat-features-list">
+                  <li>
+                    <i class="fas fa-check-circle"></i> Design esclusivo e linee
+                    moderne
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Spazi interni ampi e
+                    confortevoli
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Aria condizionata e
+                    riscaldamento
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Cucina completamente
+                    attrezzata
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Ampio prendisole a prua
+                    e poppa
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Dinette trasformabile in
+                    letto
+                  </li>
+                </ul>
               </div>
-              <div class="spec-item">
-                <i class="fas fa-bed"></i>
-                <h4>Cabine / Posti letto</h4>
-                <p>8 posti letto<br />2 bagni con doccia</p>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <h4>Prestazioni</h4>
-                <p>Autonomia: 250 miglia</p>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-snowflake"></i>
-                <h4>Comfort</h4>
-                <p>Aria condizionata<br />Riscaldamento</p>
-              </div>
-            </div>
-
-            <!-- Caratteristiche principali -->
-            <div class="boat-features">
-              <h4>Caratteristiche Principali</h4>
-              <ul>
-                <li>
-                  <i class="fas fa-check-circle"></i> Design esclusivo e linee
-                  moderne
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i> Spazi interni ampi e
-                  confortevoli
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i> Cabina armatoriale con
-                  letto matrimoniale
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i> Due cabine ospiti con
-                  letti singoli
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i> Dinette trasformabile in
-                  letto
-                </li>
-                <li>
-                  <i class="fas fa-check-circle"></i> Cucina completamente
-                  attrezzata
-                </li>
-                <li><i class="fas fa-check-circle"></i> Bagno con doccia</li>
-                <li>
-                  <i class="fas fa-check-circle"></i> Ampio spazio esterno per
-                  il relax
-                </li>
-              </ul>
             </div>
           </div>
-
-          <video
-            id="about-video"
-            src="Videos/Azimut40Sito.mp4"
-            muted
-            loading="lazy"
-            controls
-          ></video>
         </div>
       </section>
       <section id="contact" class="contact" data-aos="fade-up">
@@ -706,7 +696,45 @@
             >
 Vorrei avere maggiori informazioni</textarea
             >
-            <button type="submit" class="btn">Invia</button>
+            <div class="cta-wrapper">
+              <button class="cta" type="submit">
+                <span>Invia</span>
+                <span>
+                  <svg
+                    width="66px"
+                    height="43px"
+                    viewBox="0 0 66 43"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <g
+                      id="arrow"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        class="one"
+                        d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                        fill="#FFFFFF"
+                      ></path>
+                      <path
+                        class="two"
+                        d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                        fill="#FFFFFF"
+                      ></path>
+                      <path
+                        class="three"
+                        d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                        fill="#FFFFFF"
+                      ></path>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
           </form>
         </div>
       </section>
@@ -868,6 +896,22 @@ Vorrei avere maggiori informazioni</textarea
         >
       </div>
     </footer>
+
+    <!-- SVG Goo Filter for Blob Button -->
+    <svg style="display: none" version="1.1">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+            result="goo"
+          />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
 
     <div id="confirmation-banner">Message sent successfully!</div>
     <div id="review-confirm-banner">Review sent successfully!</div>

@@ -127,26 +127,27 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 7) Play/pause video on visibility
-    const video = document.getElementById('about-video');
-    const observer = new IntersectionObserver(entries => {
+    // 7) Play/pause video on visibility e audio on hover
+    var aboutVideo = document.getElementById('aboutVideo');
+    if (aboutVideo) {
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            entry.isIntersecting ? video.play() : video.pause();
+          entry.isIntersecting ? aboutVideo.play() : aboutVideo.pause();
         });
-    }, { threshold: 0.5 });
-    observer.observe(video);
+      }, { threshold: 0.5 });
+      observer.observe(aboutVideo);
 
-    // 8) Show controls on hover
-    video.addEventListener('mouseover', () => {
-        video.controls = true;
-        video.muted = false;
-        video.style.border = '2px solid #004d40';
-    });
-    video.addEventListener('mouseout', () => {
-        video.controls = false;
-        video.muted = true;
-        video.style.border = 'none';
-    });
+      aboutVideo.addEventListener('mouseover', () => {
+        aboutVideo.controls = true;
+        aboutVideo.muted = false;
+        aboutVideo.style.border = '2px solid #004d40';
+      });
+      aboutVideo.addEventListener('mouseout', () => {
+        aboutVideo.controls = false;
+        aboutVideo.muted = true;
+        aboutVideo.style.border = 'none';
+      });
+    }
 
     // Cookie Banner Functions
     function showCookieBanner() {
@@ -188,4 +189,67 @@ document.addEventListener('DOMContentLoaded', function () {
             hero.classList.add('loaded');
         };
     }
+
+    // --- AUTOPLAY SWIPER (carosello barca) ---
+    if (window.Swiper) {
+      var boatSwiper = new Swiper('.boat-swiper', {
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    }
+
+    // --- VIDEO ABOUT: autoplay, audio on hover ---
+    var aboutVideo = document.getElementById("aboutVideo");
+    if (aboutVideo) {
+      // Autoplay e mute all'avvio
+      aboutVideo.muted = true;
+      aboutVideo.autoplay = true;
+      aboutVideo.load();
+      // Play/Pause in base alla visibilità (opzionale, se vuoi che si fermi quando non visibile)
+      if (window.IntersectionObserver) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            entry.isIntersecting ? aboutVideo.play() : aboutVideo.pause();
+          });
+        }, { threshold: 0.5 });
+        observer.observe(aboutVideo);
+      }
+      // Audio on hover
+      aboutVideo.addEventListener("mouseenter", function () {
+        aboutVideo.muted = false;
+      });
+      aboutVideo.addEventListener("mouseleave", function () {
+        aboutVideo.muted = true;
+      });
+    }
+
+    // --- INTERACTIVE BOAT VIEWER TABS (V2) ---
+    const tabs = document.querySelectorAll('.boat-tabs-nav li');
+    const panes = document.querySelectorAll('.boat-details-interactive .tab-pane');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = 'tab-' + tab.getAttribute('data-tab');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        panes.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const targetPane = document.getElementById(targetId);
+        if (targetPane) {
+          targetPane.classList.add('active');
+        }
+      });
+    });
 });
