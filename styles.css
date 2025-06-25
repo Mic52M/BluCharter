@@ -3958,3 +3958,9 @@ button.cta:hover span:nth-child(2) {
   opacity: 1;
   margin-left: 15px;
 }
+
+@media (max-width: 600px) {
+  .hero {
+    background: url('images/HeroMobile.webp') no-repeat center center/cover !important;
+  }
+}
