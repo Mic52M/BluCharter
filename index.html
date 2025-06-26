@@ -796,17 +796,11 @@ Vorrei avere maggiori informazioni</textarea
           <div class="footer-contact">
             <p>
               Email:
-              <a
-                href="mailto:blucharterinfo@gmail.com"
-                title="Invia una email a Blu Charter"
-                >blucharterinfo@gmail.com</a
-              >
+              <span id="obf-email"></span>
             </p>
             <p>
               Telefono:
-              <a href="tel:+393920254362" title="Chiama Blu Charter"
-                >+39 392 025 4362</a
-              >
+              <span id="obf-phone"></span>
             </p>
             <p class="referente">Referente: <strong>Gino</strong></p>
           </div>
@@ -988,5 +982,59 @@ Vorrei avere maggiori informazioni</textarea
       src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v19.0"
       nonce="fbplugin"
     ></script>
+    <script>
+      // --- Contact Form Validation ---
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            let valid = true;
+            // Nome
+            const name = form.from_name.value.trim();
+            if (!name || /[<>"'\\]/.test(name)) {
+              alert("Nome non valido.");
+              valid = false;
+            }
+            // Email
+            const email = form.user_email.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+              alert("Email non valida.");
+              valid = false;
+            }
+            // Telefono
+            const phone = form.phone.value.trim();
+            const phoneRegex = /^[0-9\s\-\+\(\)]{7,20}$/;
+            if (!phoneRegex.test(phone)) {
+              alert("Numero di telefono non valido.");
+              valid = false;
+            }
+            // Messaggio (no tag script)
+            const message = form.message.value;
+            if (/<script/i.test(message)) {
+              alert("Il messaggio contiene caratteri non ammessi.");
+              valid = false;
+            }
+            if (!valid) e.preventDefault();
+          });
+        }
+        // --- Obfuscate Email/Phone ---
+        function revealContact(id, value, prefix) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (prefix === "mailto:") {
+              el.innerHTML = `<a href='mailto:${value}' title='Invia una email a Blu Charter'>${value}</a>`;
+            } else if (prefix === "tel:") {
+              el.innerHTML = `<a href='tel:${value.replace(
+                /\s+/g,
+                ""
+              )}' title='Chiama Blu Charter'>${value}</a>`;
+            }
+          }
+        }
+        revealContact("obf-email", "blucharterinfo@gmail.com", "mailto:");
+        revealContact("obf-phone", "+39 392 025 4362", "tel:");
+      });
+    </script>
   </body>
 </html>
