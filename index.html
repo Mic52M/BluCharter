@@ -303,6 +303,37 @@
       href="/images/azimuthero.webp"
       type="image/webp"
     />
+    <style>
+      .tour-img.modern-img {
+        object-fit: cover;
+        object-position: center 40%;
+        width: 100%;
+        height: 180px;
+        border-radius: 18px 18px 0 0;
+        transition: none;
+        box-shadow: 0 4px 18px rgba(31, 38, 135, 0.13);
+      }
+      .tour-card.modern-card {
+        transition: box-shadow 0.25s cubic-bezier(.4,1.4,.6,1), transform 0.22s cubic-bezier(.4,1.4,.6,1);
+      }
+      .tour-card.modern-card:hover {
+        box-shadow: 0 8px 32px 0 rgba(26,117,255,0.16);
+        transform: scale(1.04) translateY(-6px);
+      }
+      .tour-card.modern-card .tour-img.modern-img:hover {
+        transform: none !important;
+        filter: none !important;
+      }
+      .tour-badge.modern-badge.badge-gold {
+        background: linear-gradient(90deg, #1a75ff 0%, #003366 100%) !important;
+        color: #fff !important;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 2px 8px rgba(31,38,135,0.13);
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -333,14 +364,13 @@
               >
             </li>
             <li>
-              <a href="#contact" title="Contattaci"
-                ><i class="fas fa-envelope" aria-hidden="true"></i> Contatti</a
+              <a href="#tours" title="Scopri i nostri tour"
+                ><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Tours</a
               >
             </li>
             <li>
-              <a href="#contact" title="Prenota ora la tua esperienza"
-                ><i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                Prenotazioni</a
+              <a href="#contact" title="Contattaci"
+                ><i class="fas fa-envelope" aria-hidden="true"></i> Contatti</a
               >
             </li>
           </ul>
@@ -405,125 +435,85 @@
           <i class="fas fa-chevron-down"></i>
         </div>
       </section>
-      <section id="services" class="services-pro" data-aos="fade-up">
+      <section id="services" class="services-pro modern-services" data-aos="fade-up">
         <div class="container">
-          <h2 class="services-title" data-aos="fade-up">I nostri servizi</h2>
-          <div class="services-cards">
+          <h2 class="services-title modern-services-title" data-aos="fade-up">I nostri servizi</h2>
+          <div class="services-cards modern-services-grid">
             <!-- Giro in barca -->
-            <div
-              class="service-pro-card"
-              data-aos="zoom-in"
-              data-aos-delay="100"
-            >
-              <div class="service-pro-header">
-                <h3>Giro in Barca</h3>
-                <span class="service-badge">Anche con pernotto</span>
+            <div class="service-pro-card modern-service-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="modern-service-header">
+                <h3 class="modern-service-title">Giro in Barca</h3>
+                <span class="service-badge modern-badge badge-night" aria-label="Anche con pernottamento">
+                  <span class="badge-icon" aria-hidden="true">🌙</span> Anche con pernotto
+                </span>
               </div>
-              <div class="service-pro-body">
-                <p class="service-pro-desc">
-                  Vivi una giornata esclusiva lungo la costa dell'Argentario:
-                  relax, bagni, natura e comfort a bordo della nostra
-                  imbarcazione.
+              <div class="service-pro-body modern-service-body">
+                <p class="service-pro-desc modern-service-desc">
+                  Vivi una giornata esclusiva lungo la costa dell'Argentario: relax, bagni, natura e comfort a bordo della nostra imbarcazione.
                 </p>
-                <ul class="service-pro-list">
-                  <li>Partenza da Porto Ercole</li>
-                  <li>Orario: 9:15 - 17:45/18:00</li>
-                  <li>Cabine climatizzate, fino a 7 posti letto</li>
+                <ul class="service-pro-list modern-service-list">
+                  <li><span class="list-icon" aria-hidden="true">✅</span> Partenza da Porto Ercole</li>
+                  <li><span class="list-icon" aria-hidden="true">🕒</span> Orario: 9:15 - 17:45/18:00</li>
+                  <li><span class="list-icon" aria-hidden="true">🛏️</span> Cabine climatizzate, fino a 8 posti letto</li>
                 </ul>
               </div>
             </div>
             <!-- Pranzo a bordo -->
-            <div
-              class="service-pro-card"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <div class="service-pro-header">
-                <h3>Pranzo di Pesce a Bordo</h3>
-                <span class="service-badge">Cucina a bordo</span>
+            <div class="service-pro-card modern-service-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="modern-service-header">
+                <h3 class="modern-service-title">Pranzo di Pesce a Bordo</h3>
+                <span class="service-badge modern-badge badge-food" aria-label="Cucina a bordo">
+                  <span class="badge-icon" aria-hidden="true">🍽️</span> Cucina a bordo
+                </span>
               </div>
-              <div class="service-pro-body">
-                <p class="service-pro-desc">
-                  Gusta un pranzo di pesce preparato fresco a bordo, oppure
-                  porta il tuo pranzo da casa per la massima libertà.
+              <div class="service-pro-body modern-service-body">
+                <p class="service-pro-desc modern-service-desc">
+                  Gusta un pranzo di pesce preparato fresco a bordo, oppure porta il tuo pranzo da casa per la massima libertà.
                 </p>
-                <ul class="service-pro-list">
-                  <li>Primo di pesce incluso</li>
-                  <li>Gelato pomeridiano</li>
-                  <li>Opzione pranzo al sacco</li>
+                <ul class="service-pro-list modern-service-list">
+                  <li><span class="list-icon" aria-hidden="true">✅</span> Primo di pesce incluso</li>
+                  <li><span class="list-icon" aria-hidden="true">🍦</span> Gelato pomeridiano</li>
                 </ul>
               </div>
             </div>
             <!-- Aperitivo -->
-            <div
-              class="service-pro-card"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            >
-              <div class="service-pro-header">
-                <h3>Aperitivo al Tramonto</h3>
-                <span class="service-badge">Anche solo aperitivo</span>
+            <div class="service-pro-card modern-service-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="modern-service-header">
+                <h3 class="modern-service-title">Aperitivo al Tramonto</h3>
+                <span class="service-badge modern-badge badge-sunset" aria-label="Anche solo aperitivo">
+                  <span class="badge-icon" aria-hidden="true">🌅</span> Anche solo aperitivo
+                </span>
               </div>
-              <div class="service-pro-body">
-                <p class="service-pro-desc">
-                  Concludi la giornata con un aperitivo esclusivo in barca:
-                  drink selezionati, stuzzichini e il sole che si tuffa nel
-                  mare.
+              <div class="service-pro-body modern-service-body">
+                <p class="service-pro-desc modern-service-desc">
+                  Concludi la giornata con un aperitivo esclusivo in barca: drink selezionati, stuzzichini e il sole che si tuffa nel mare.
                 </p>
-                <ul class="service-pro-list">
-                  <li>Orario: 18:30 - 20:30/21:00</li>
-                  <li>Drink e snack inclusi</li>
-                  <li>Prenotabile anche senza giro</li>
+                <ul class="service-pro-list modern-service-list">
+                  <li><span class="list-icon" aria-hidden="true">🕒</span> Orario: 18:30 - 20:30/21:00</li>
+                  <li><span class="list-icon" aria-hidden="true">🍹</span> Drink e snack inclusi</li>
+                  <li><span class="list-icon" aria-hidden="true">✅</span> Prenotabile anche senza giro</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- <section id="tours" class="tours" data-aos="fade-right">
-        <div class="container">
-          <h2>I Nostri Tour</h2>
-          <div class="tour-card">
-            <h3>Tour al Tramonto</h3>
-            <p>Goditi un meraviglioso tramonto sul mare.</p>
-            <img
-              src="https://via.placeholder.com/300x200"
-              alt="Tour al Tramonto"
-              loading="lazy"
-            />
-          </div>
-          <div class="tour-card">
-            <h3>Tour delle Isole</h3>
-            <p>Scopri le isole più belle della zona.</p>
-            <img
-              src="https://via.placeholder.com/300x200"
-              alt="Tour delle Isole"
-              loading="lazy"
-            />
-          </div>
-          <div class="tour-card">
-            <h3>Tour di Pesca</h3>
-            <p>Un'avventura di pesca con esperti locali.</p>
-            <img
-              src="https://via.placeholder.com/300x200"
-              alt="Tour di Pesca"
-              loading="lazy"
-            />
-          </div>
+        <div class="services-bg-decoration">
+          <div class="bg-blob bg-blob-1"></div>
+          <div class="bg-blob bg-blob-2"></div>
         </div>
-      </section> -->
+      </section>
       <section id="about" class="about-section-v2" data-aos="fade-up">
         <div class="container">
           <!-- 1. Impact Intro -->
-          <div class="about-large-intro" data-aos="fade-up">
-            <span class="icon"><i class="fas fa-water"></i></span>
-            <h2>Vivi il mare, vivi l'Argentario.</h2>
-            <p>
-              Siamo più di un noleggio barche. Siamo custodi di esperienze
-              uniche. Con la nostra <span class="highlight">Azimut 40</span>, ti
-              portiamo lontano dalla folla, in angoli di paradiso che solo il
-              mare conosce. Comfort, esclusività e la vera bellezza della costa
-              toscana, pensati solo per te.
+          <div class="about-large-intro modern-hero-intro" data-aos="fade-up">
+            <h1 class="modern-hero-title" data-aos="fade-up" data-aos-delay="0">
+              Vivi il mare, vivi l'Argentario.
+              <span class="hero-wave-icon" aria-hidden="true">🌊</span>
+            </h1>
+            <p class="modern-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+              Siamo più di un noleggio barche. Siamo custodi di esperienze uniche. Con la nostra
+              <a href="#" class="modern-hero-link" aria-label="Scopri di più su Azimut 40">Azimut 40</a>,
+              ti portiamo lontano dalla folla, in angoli di paradiso che solo il mare conosce. Comfort, esclusività e la vera bellezza della costa toscana, pensati solo per te.
             </p>
           </div>
 
@@ -533,7 +523,7 @@
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <h3>Un'Anteprima della Tua Giornata</h3>
+            <h2 class="modern-hero-video-title" data-aos="fade-up" data-aos-delay="0">Un'Emozione in Anteprima</h2>
             <div class="about-video-wrapper">
               <video
                 id="aboutVideo"
@@ -552,14 +542,32 @@
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <ul class="boat-tabs-nav">
-              <li class="active" data-tab="gallery">Galleria</li>
-              <li data-tab="specs">Dettagli Tecnici</li>
-              <li data-tab="features">Comfort a Bordo</li>
-            </ul>
+            <!-- Titolo introduttivo -->
+            <div class="boat-intro-header" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="boat-intro-title">Benvenuto a Bordo</h2>
+              <p class="boat-intro-subtitle">Tutto ciò che c'è da sapere sulla nostra imbarcazione</p>
+            </div>
+            
+            <div class="boat-tabs-container" role="tablist" aria-label="Dettagli della barca Azimut 40">
+              <ul class="boat-tabs-nav">
+                <li class="active" data-tab="gallery" role="tab" aria-selected="true" aria-controls="tab-gallery" tabindex="0">
+                  <i class="fas fa-images" aria-hidden="true"></i>
+                  <span>Galleria</span>
+                </li>
+                <li data-tab="specs" role="tab" aria-selected="false" aria-controls="tab-specs" tabindex="0">
+                  <i class="fas fa-cogs" aria-hidden="true"></i>
+                  <span>Dettagli Tecnici</span>
+                </li>
+                <li data-tab="features" role="tab" aria-selected="false" aria-controls="tab-features" tabindex="0">
+                  <i class="fas fa-star" aria-hidden="true"></i>
+                  <span>Comfort a Bordo</span>
+                </li>
+              </ul>
+            </div>
+            
             <div class="boat-tab-content">
               <!-- Gallery Pane -->
-              <div id="tab-gallery" class="tab-pane active">
+              <div id="tab-gallery" class="tab-pane active" role="tabpanel" aria-labelledby="gallery-tab" data-aos="fade-in" data-aos-delay="200">
                 <div class="swiper boat-swiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -615,56 +623,136 @@
                 </div>
               </div>
               <!-- Specs Pane -->
-              <div id="tab-specs" class="tab-pane">
+              <div id="tab-specs" class="tab-pane" role="tabpanel" aria-labelledby="specs-tab" data-aos="fade-in" data-aos-delay="200">
                 <div class="boat-specs-grid">
-                  <div class="spec-item">
-                    <i class="fas fa-ruler"></i>
-                    <h4>Dimensioni</h4>
-                    <p>Lunghezza: 12.80 m<br />Larghezza: 3.80 m</p>
+                  <div class="spec-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="spec-icon">
+                      <!-- Righello SVG -->
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="10" width="24" height="12" rx="4" fill="url(#ruler-gradient)"/>
+                        <rect x="4" y="10" width="24" height="12" rx="4" stroke="#fff" stroke-width="1.5" fill="none"/>
+                        <line x1="8" y1="13" x2="8" y2="19" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="12" y1="13" x2="12" y2="19" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="16" y1="13" x2="16" y2="19" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="13" x2="20" y2="19" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <defs>
+                          <linearGradient id="ruler-gradient" x1="4" y1="10" x2="28" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1a75ff"/>
+                            <stop offset="1" stop-color="#003366"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="spec-content">
+                      <h4>Dimensioni</h4>
+                      <p>Lunghezza: 12.80 m<br />Larghezza: 3.80 m</p>
+                    </div>
                   </div>
-                  <div class="spec-item">
-                    <i class="fas fa-bed"></i>
-                    <h4>Posti Letto</h4>
-                    <p>2 cabine, 8 posti letto</p>
+                  <div class="spec-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="spec-icon">
+                      <!-- Letto SVG -->
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="15" width="22" height="8" rx="3" fill="url(#bed-gradient)"/>
+                        <rect x="5" y="15" width="22" height="8" rx="3" stroke="#fff" stroke-width="1.5" fill="none"/>
+                        <rect x="7" y="11" width="7" height="6" rx="2" fill="#fff" fill-opacity="0.7"/>
+                        <rect x="7" y="11" width="7" height="6" rx="2" stroke="#fff" stroke-width="1" fill="none"/>
+                        <defs>
+                          <linearGradient id="bed-gradient" x1="5" y1="15" x2="27" y2="23" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1a75ff"/>
+                            <stop offset="1" stop-color="#003366"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="spec-content">
+                      <h4>Posti Letto</h4>
+                      <p>2 cabine, 8 posti letto</p>
+                    </div>
                   </div>
-                  <div class="spec-item">
-                    <i class="fas fa-shower"></i>
-                    <h4>Bagni</h4>
-                    <p>2 bagni con doccia</p>
+                  <div class="spec-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="spec-icon">
+                      <!-- Doccia SVG -->
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="16" height="16" rx="8" fill="url(#shower-gradient)"/>
+                        <rect x="8" y="8" width="16" height="16" rx="8" stroke="#fff" stroke-width="1.5" fill="none"/>
+                        <path d="M16 14v4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="16" cy="21" r="1" fill="#fff"/>
+                        <circle cx="13" cy="19" r="1" fill="#fff"/>
+                        <circle cx="19" cy="19" r="1" fill="#fff"/>
+                        <defs>
+                          <linearGradient id="shower-gradient" x1="8" y1="8" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1a75ff"/>
+                            <stop offset="1" stop-color="#003366"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="spec-content">
+                      <h4>Bagni</h4>
+                      <p>2 bagni con doccia</p>
+                    </div>
                   </div>
-                  <div class="spec-item">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <h4>Velocità</h4>
-                    <p>Massima: 30 nodi</p>
+                  <div class="spec-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="spec-icon">
+                      <!-- Tachimetro SVG -->
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="12" fill="url(#speed-gradient)"/>
+                        <circle cx="16" cy="16" r="12" stroke="#fff" stroke-width="1.5" fill="none"/>
+                        <path d="M16 16 L22 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="2" fill="#fff"/>
+                        <defs>
+                          <linearGradient id="speed-gradient" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1a75ff"/>
+                            <stop offset="1" stop-color="#003366"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="spec-content">
+                      <h4>Velocità</h4>
+                      <p>Massima: 30 nodi</p>
+                    </div>
                   </div>
                 </div>
               </div>
               <!-- Features Pane -->
-              <div id="tab-features" class="tab-pane">
+              <div id="tab-features" class="tab-pane" role="tabpanel" aria-labelledby="features-tab" data-aos="fade-in" data-aos-delay="200">
                 <ul class="boat-features-list">
-                  <li>
-                    <i class="fas fa-check-circle"></i> Design esclusivo e linee
-                    moderne
+                  <li data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>Design esclusivo e linee moderne</span>
                   </li>
-                  <li>
-                    <i class="fas fa-check-circle"></i> Spazi interni ampi e
-                    confortevoli
+                  <li data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>Spazi interni ampi e confortevoli</span>
                   </li>
-                  <li>
-                    <i class="fas fa-check-circle"></i> Aria condizionata e
-                    riscaldamento
+                  <li data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>Aria condizionata e riscaldamento</span>
                   </li>
-                  <li>
-                    <i class="fas fa-check-circle"></i> Cucina completamente
-                    attrezzata
+                  <li data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>Cucina completamente attrezzata</span>
                   </li>
-                  <li>
-                    <i class="fas fa-check-circle"></i> Ampio prendisole a prua
-                    e poppa
+                  <li data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>Ampio prendisole a prua e poppa</span>
                   </li>
-                  <li>
-                    <i class="fas fa-check-circle"></i> Dinette trasformabile in
-                    letto
+                  <li data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                      <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>Dinette trasformabile in letto</span>
                   </li>
                 </ul>
               </div>
@@ -672,9 +760,69 @@
           </div>
         </div>
       </section>
+      <!-- Sezione Tour (ibrida, dopo la barca, prima dei contatti) -->
+      <section id="tours" class="tours-section enhanced modern" data-aos="fade-up">
+        <div class="container">
+          <h2 class="tours-title modern-title" data-aos="fade-up">I nostri Tour</h2>
+          <div class="tours-grid modern-grid">
+            <!-- Tour Monte Argentario e Cala Grande -->
+            <div class="tour-card modern-card" data-aos="fade-up" data-aos-delay="100" data-tour="argentario-cala-grande">
+              <div class="tour-img-wrapper modern-img-wrapper">
+                <img src="images/MonteArgentarioTourMain.png" alt="Monte Argentario" class="tour-img modern-img" />
+                <div class="tour-img-overlay modern-overlay"></div>
+              </div>
+              <div class="tour-info modern-info">
+                <h3 class="modern-title">Intorno al Monte Argentario fino a Cala Grande</h3>
+                <p class="modern-desc">Un tour esclusivo lungo la costa dell'Argentario, tra calette segrete, scogliere e acque cristalline. Ideale per chi vuole vivere il mare autentico della Toscana, con soste per il bagno nelle baie più suggestive e relax a bordo.</p>
+              </div>
+            </div>
+            <!-- Tour Isola del Giglio (solo Giglio) -->
+            <div class="tour-card modern-card" data-aos="fade-up" data-aos-delay="200" data-tour="giglio">
+              <div class="tour-img-wrapper modern-img-wrapper">
+                <img src="images/IsolaGiglioTourMain.png" alt="Isola del Giglio" class="tour-img modern-img" />
+                <div class="tour-img-overlay modern-overlay"></div>
+              </div>
+              <div class="tour-info modern-info">
+                <h3 class="modern-title">Isola del Giglio</h3>
+                <p class="modern-desc">Scopri una delle perle dell'Arcipelago Toscano: il Giglio, con i suoi borghi, spiagge dorate e acque limpide. Un'esperienza tra natura, relax e mare.</p>
+              </div>
+            </div>
+            <!-- Tour Isola del Giglio e Giannutri (combinato) -->
+            <div class="tour-card modern-card" data-aos="fade-up" data-aos-delay="300" data-tour="giglio-giannutri">
+              <div class="tour-img-wrapper modern-img-wrapper">
+                <img src="images/GIannutriTourMain.png" alt="Giglio e Giannutri" class="tour-img modern-img" />
+                <div class="tour-img-overlay modern-overlay"></div>
+              </div>
+              <div class="tour-info modern-info">
+                <h3 class="modern-title">Isola del Giglio e Giannutri</h3>
+                <p class="modern-desc">Scopri due perle dell'Arcipelago Toscano in un'unica giornata: il Giglio, con i suoi borghi e spiagge dorate, e Giannutri, riserva naturale dal fascino selvaggio. Navigazione, snorkeling e tempo libero per esplorare le isole.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Pulsante temporaneamente nascosto per ragioni di sviluppo - sarà riattivato in futuro -->
+          <!--
+          <div class="tours-cta-wrapper modern-cta-wrapper" data-aos="fade-up" data-aos-delay="400">
+            <a href="tours.html" class="tours-cta-btn modern-cta-btn ripple-btn">
+              <span class="btn-text">Scopri tutti i tour</span>
+              <span class="btn-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+          -->
+        </div>
+        <!-- Background decorative elements -->
+        <div class="tours-bg-decoration">
+          <div class="bg-blob bg-blob-1"></div>
+          <div class="bg-blob bg-blob-2"></div>
+          <div class="bg-blob bg-blob-3"></div>
+        </div>
+      </section>
       <section id="contact" class="contact" data-aos="fade-up">
         <div class="container">
-          <h2 class="services-title" data-aos="fade-up">Contatti</h2>
+          <h2 class="services-title modern-services-title" data-aos="fade-up">Contatti</h2>
           <form
             id="contact-form"
             data-aos="zoom-in"
@@ -759,7 +907,7 @@ Vorrei avere maggiori informazioni</textarea
       </section>
       <section id="map" class="map-section" data-aos="fade-up">
         <div class="container">
-          <h2>Dove Siamo</h2>
+          <h2 class="services-title modern-services-title" data-aos="fade-up">Dove Siamo</h2>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.727944158947!2d11.204774512654708!3d42.390941733028335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13285c7fe13a717f%3A0xfea040991dd807f8!2sLungomare%20Andrea%20Doria%2C%2078%2F79%2C%2058018%20Porto%20Ercole%20GR!5e0!3m2!1sit!2sit!4v1747737138809!5m2!1sit!2sit"
             width="600"
@@ -826,11 +974,6 @@ Vorrei avere maggiori informazioni</textarea
             <!-- <li><a href="#tours">Tour</a></li> -->
             <li><a href="#about" title="Scopri chi siamo">Chi Siamo</a></li>
             <li><a href="#contact" title="Contattaci">Contatti</a></li>
-            <li>
-              <a href="#contact" title="Prenota ora la tua esperienza"
-                >Prenotazioni</a
-              >
-            </li>
             <li>
               <a
                 href="privacy-policy.html"
@@ -932,6 +1075,8 @@ Vorrei avere maggiori informazioni</textarea
       <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Banner cookie -->
+    <!--
     <div class="cookie-banner" id="cookieBanner">
       <div class="cookie-content">
         <div class="cookie-text">
@@ -955,12 +1100,14 @@ Vorrei avere maggiori informazioni</textarea
         </div>
       </div>
     </div>
+    -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     <script src="swiper-init.js"></script>
-    <script src="cookie-banner.js"></script>
+    <!-- Commento anche il caricamento dello script cookie-banner.js -->
+    <!-- <script src="cookie-banner.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {

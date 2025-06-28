@@ -32,3 +32,7 @@ moderate_reviews.js
 save_image.js
 reviews.json
 pending_reviews.json
+
+# Tour pages (temporaneamente esclusi)
+tours.html
+tours-layout.css

@@ -239,17 +239,374 @@ document.addEventListener('DOMContentLoaded', function () {
     const panes = document.querySelectorAll('.boat-details-interactive .tab-pane');
 
     tabs.forEach(tab => {
+      // Click handler
       tab.addEventListener('click', () => {
-        const targetId = 'tab-' + tab.getAttribute('data-tab');
-
-        tabs.forEach(t => t.classList.remove('active'));
-        panes.forEach(p => p.classList.remove('active'));
-
-        tab.classList.add('active');
-        const targetPane = document.getElementById(targetId);
-        if (targetPane) {
-          targetPane.classList.add('active');
+        switchTab(tab);
+      });
+      
+      // Keyboard navigation
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          switchTab(tab);
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          navigateTabs(e.key === 'ArrowRight' ? 1 : -1, tab);
         }
       });
+      
+      // Focus management
+      tab.addEventListener('focus', () => {
+        tab.style.outline = '2px solid #1a75ff';
+        tab.style.outlineOffset = '2px';
+      });
+      
+      tab.addEventListener('blur', () => {
+        tab.style.outline = '';
+        tab.style.outlineOffset = '';
+      });
     });
+
+    function switchTab(selectedTab) {
+      const targetId = 'tab-' + selectedTab.getAttribute('data-tab');
+      
+      // Update tab states
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      
+      panes.forEach(p => {
+        p.classList.remove('active');
+      });
+
+      // Activate selected tab
+      selectedTab.classList.add('active');
+      selectedTab.setAttribute('aria-selected', 'true');
+      
+      // Show target pane with animation
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('active');
+        
+        // Trigger AOS animations for content inside the pane
+        const animatedElements = targetPane.querySelectorAll('[data-aos]');
+        animatedElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('aos-animate');
+          }, index * 100);
+        });
+      }
+    }
+
+    function navigateTabs(direction, currentTab) {
+      const tabArray = Array.from(tabs);
+      const currentIndex = tabArray.indexOf(currentTab);
+      const nextIndex = (currentIndex + direction + tabArray.length) % tabArray.length;
+      const nextTab = tabArray[nextIndex];
+      
+      nextTab.focus();
+      switchTab(nextTab);
+    }
+
+    // Modern Tours Section Enhancements
+    initModernTours();
+    
+    // Initialize intersection observer for scroll animations
+    initScrollAnimations();
+    
+    // Initialize parallax effects
+    initParallaxEffects();
+
+    // Modern Services Section Enhancements
+    initModernServices();
 });
+
+function initModernTours() {
+  const tourCards = document.querySelectorAll('.tour-card.modern-card');
+  
+  tourCards.forEach((card, index) => {
+    // Add staggered animation delay
+    card.style.animationDelay = `${index * 0.1}s`;
+    
+    // Add click handler for better UX
+    card.addEventListener('click', function() {
+      // Add ripple effect
+      createRippleEffect(this, event);
+      
+      // Optional: Navigate to tour details
+      const tourType = this.getAttribute('data-tour');
+      console.log(`Tour selected: ${tourType}`);
+    });
+    
+    // Add keyboard navigation
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+    
+    // Add focus management
+    card.addEventListener('focus', function() {
+      this.style.transform = 'translateY(-8px) scale(1.01)';
+    });
+    
+    card.addEventListener('blur', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+  
+  // Initialize CTA button effects
+  const ctaButton = document.querySelector('.tours-cta-btn.modern-cta-btn');
+  if (ctaButton) {
+    ctaButton.addEventListener('click', function(e) {
+      createRippleEffect(this, e);
+    });
+  }
+}
+
+function createRippleEffect(element, event) {
+  const ripple = document.createElement('span');
+  const rect = element.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const x = event.clientX - rect.left - size / 2;
+  const y = event.clientY - rect.top - size / 2;
+  
+  ripple.style.cssText = `
+    position: absolute;
+    width: ${size}px;
+    height: ${size}px;
+    left: ${x}px;
+    top: ${y}px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+    z-index: 10;
+  `;
+  
+  element.appendChild(ripple);
+  
+  setTimeout(() => {
+    ripple.remove();
+  }, 600);
+}
+
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe tour cards
+  document.querySelectorAll('.tour-card.modern-card').forEach(card => {
+    observer.observe(card);
+  });
+  
+  // Observe title and CTA
+  document.querySelectorAll('.tours-title.modern-title, .tours-cta-wrapper.modern-cta-wrapper').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+function initParallaxEffects() {
+  const tourCards = document.querySelectorAll('.tour-card.modern-card');
+  
+  tourCards.forEach(card => {
+    const img = card.querySelector('.tour-img.modern-img');
+    
+    if (img) {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        img.style.transform = `
+          scale(1.08) 
+          rotateX(${rotateX}deg) 
+          rotateY(${rotateY}deg)
+        `;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        img.style.transform = 'scale(1.08)';
+      });
+    }
+  });
+}
+
+// Add CSS for ripple animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  .animate-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+document.head.appendChild(style);
+
+// Performance optimization: Throttle scroll events
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  }
+}
+
+// Add smooth scroll behavior for tour cards
+document.addEventListener('DOMContentLoaded', function() {
+  const tourCards = document.querySelectorAll('.tour-card.modern-card');
+  
+  tourCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Prevent default only if we want to add custom navigation
+      // e.preventDefault();
+      
+      // Add visual feedback
+      this.style.transform = 'translateY(-8px) scale(1.02)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  });
+});
+
+// Enhanced hover effects for feature tags
+document.addEventListener('DOMContentLoaded', function() {
+  const featureTags = document.querySelectorAll('.feature-tag');
+  
+  featureTags.forEach(tag => {
+    tag.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px) scale(1.05)';
+    });
+    
+    tag.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+});
+
+function initModernServices() {
+  // Reveal on scroll
+  const serviceCards = document.querySelectorAll('.modern-service-card');
+  serviceCards.forEach((card, idx) => {
+    card.style.animationDelay = `${idx * 0.1 + 0.1}s`;
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in-service');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  serviceCards.forEach(card => observer.observe(card));
+
+  // Badge animation (pulse/scale)
+  document.querySelectorAll('.modern-badge').forEach(badge => {
+    badge.addEventListener('mouseenter', function() {
+      this.classList.add('badge-pulse');
+    });
+    badge.addEventListener('mouseleave', function() {
+      this.classList.remove('badge-pulse');
+    });
+    badge.addEventListener('focus', function() {
+      this.classList.add('badge-pulse');
+    });
+    badge.addEventListener('blur', function() {
+      this.classList.remove('badge-pulse');
+    });
+  });
+
+  // Ripple effect sui bottoni
+  document.querySelectorAll('.modern-service-btn.ripple-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      createRippleEffect(this, e);
+    });
+  });
+
+  // Bullet point icon animation
+  document.querySelectorAll('.modern-service-list .list-icon').forEach(icon => {
+    icon.parentElement.addEventListener('mouseenter', function() {
+      icon.style.transform = 'scale(1.18) rotate(-10deg)';
+    });
+    icon.parentElement.addEventListener('mouseleave', function() {
+      icon.style.transform = '';
+    });
+  });
+
+  // Keyboard accessibility for cards and buttons
+  serviceCards.forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const btn = card.querySelector('.modern-service-btn');
+        if (btn) btn.click();
+      }
+    });
+    card.addEventListener('focus', function() {
+      card.style.transform = 'scale(1.02) translateY(-4px)';
+    });
+    card.addEventListener('blur', function() {
+      card.style.transform = '';
+    });
+  });
+}
+
+// Badge pulse animation CSS
+const styleServices = document.createElement('style');
+styleServices.textContent = `
+  .badge-pulse {
+    animation: badgePulse 0.6s cubic-bezier(.4,1.4,.6,1);
+  }
+  @keyframes badgePulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 #1a75ff33; }
+    50% { transform: scale(1.13); box-shadow: 0 0 0 8px #1a75ff22; }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 #1a75ff00; }
+  }
+  .animate-in-service {
+    animation: fadeInUpService 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+`;
+document.head.appendChild(styleServices);

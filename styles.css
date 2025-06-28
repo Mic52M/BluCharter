@@ -3252,27 +3252,37 @@ header .logo-title {
 }
 
 .swiper-button-next, .swiper-button-prev {
-  background: none;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.10);
   border: none;
-  box-shadow: none;
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.6rem;
-  color: #1a75ff;
-  transition: color 0.2s, transform 0.2s;
+  font-size: 2rem;
+  color: #2563eb;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+  cursor: pointer;
   padding: 0;
 }
+.swiper-button-next { right: 20px; }
+.swiper-button-prev { left: 20px; }
 .swiper-button-next:hover, .swiper-button-prev:hover {
-  color: #0052cc;
-  transform: scale(1.18);
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.18);
+  transform: translateY(-50%) scale(1.13);
 }
 .swiper-button-next i, .swiper-button-prev i {
   pointer-events: none;
+  font-size: 1.7rem;
 }
-
 .swiper-button-next::after, .swiper-button-prev::after {
   display: none !important;
 }
@@ -3585,9 +3595,10 @@ Modern About Section - Redesign V2
 */
 
 .about-section-v2 {
-  padding: 5rem 0;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8faff 0%, #eaf4ff 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 /* 1. Impact Intro */
@@ -3649,11 +3660,60 @@ Modern About Section - Redesign V2
 /* 3. Boat Details Section */
 .boat-details-interactive {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 2rem auto;
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 8px 32px rgba(0, 51, 102, 0.08);
   overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+}
+
+/* Titolo introduttivo */
+.boat-intro-header {
+  text-align: center;
+  padding: 2rem 2.5rem 1.5rem;
+  background: linear-gradient(135deg, #f8faff 0%, #eaf4ff 100%);
+  border-bottom: 1px solid #e1e8f0;
+}
+
+.boat-intro-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #003366 0%, #1a75ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.boat-intro-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  border-radius: 2px;
+}
+
+.boat-intro-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Container delle tabs */
+.boat-tabs-container {
+  background: #ffffff;
+  border-bottom: 1px solid #e1e8f0;
 }
 
 .boat-details-interactive .boat-tabs-nav {
@@ -3661,43 +3721,63 @@ Modern About Section - Redesign V2
   list-style: none;
   padding: 0;
   margin: 0;
-  background: #eaf4ff;
-  border-bottom: 1px solid #dee2e6;
+  background: #ffffff;
+  border-bottom: none;
 }
 
 .boat-details-interactive .boat-tabs-nav li {
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: #003366;
+  color: #6b7280;
   position: relative;
-  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex: 1;
   text-align: center;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-bottom: 3px solid transparent;
+}
+
+.boat-details-interactive .boat-tabs-nav li i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
 }
 
 .boat-details-interactive .boat-tabs-nav li:hover {
-  background-color: #d1e6ff;
+  background-color: #f8faff;
+  color: #1a75ff;
+  transform: translateY(-2px);
+}
+
+.boat-details-interactive .boat-tabs-nav li:hover i {
+  transform: scale(1.1);
 }
 
 .boat-details-interactive .boat-tabs-nav li.active {
   color: #1a75ff;
-  background-color: #ffffff;
+  background-color: #f8faff;
+  border-bottom-color: #1a75ff;
+  font-weight: 600;
 }
 
 .boat-details-interactive .boat-tabs-nav li.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #1a75ff;
+  display: none;
+}
+
+.boat-details-interactive .boat-tabs-nav li:focus {
+  outline: 2px solid #1a75ff;
+  outline-offset: -2px;
+  border-radius: 8px;
 }
 
 .boat-details-interactive .boat-tab-content {
   padding: 2.5rem;
+  background: #ffffff;
 }
 
 .boat-details-interactive .tab-pane {
@@ -3706,23 +3786,219 @@ Modern About Section - Redesign V2
 
 .boat-details-interactive .tab-pane.active {
   display: block;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 768px) {
-  .about-large-intro h2 {
-    font-size: 2.2rem;
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
   }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Miglioramenti per le specifiche tecniche */
+.boat-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.spec-item {
+  background: #ffffff;
+  border: 1px solid #e1e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.spec-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 51, 102, 0.12);
+  border-color: #1a75ff;
+}
+
+.spec-icon {
+  background: linear-gradient(135deg, #1a75ff 0%, #003366 100%) !important;
+  color: #fff !important;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem !important;
+  box-shadow: 0 2px 8px rgba(26,117,255,0.10);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.spec-item:hover .spec-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.spec-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.spec-content p {
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Miglioramenti per le features */
+.boat-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.boat-features-list li {
+  background: #ffffff;
+  border: 1px solid #e1e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.boat-features-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 51, 102, 0.1);
+  border-color: #1a75ff;
+}
+
+.feature-icon {
+  background: linear-gradient(135deg, #00c48c 0%, #1a75ff 100%) !important;
+  color: #fff !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.boat-features-list li:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.boat-features-list li span {
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .boat-intro-header {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .boat-intro-title {
+    font-size: 2rem;
+  }
+  
+  .boat-intro-subtitle {
+    font-size: 1rem;
+  }
+  
   .boat-details-interactive .boat-tabs-nav {
     flex-direction: column;
   }
+  
+  .boat-details-interactive .boat-tabs-nav li {
+    padding: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid #e1e8f0;
+  }
+  
+  .boat-details-interactive .boat-tabs-nav li.active {
+    border-bottom-color: #1a75ff;
+  }
+  
   .boat-details-interactive .boat-tab-content {
     padding: 1.5rem;
+  }
+  
+  .boat-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .boat-features-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .spec-item, .boat-features-list li {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .boat-intro-title {
+    font-size: 1.75rem;
+  }
+  
+  .boat-intro-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .boat-details-interactive .boat-tabs-nav li {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+  
+  .spec-item, .boat-features-list li {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .spec-icon, .feature-icon {
+    align-self: center;
+  }
+}
+
+/* Animazioni per preferenze di movimento ridotto */
+@media (prefers-reduced-motion: reduce) {
+  .boat-details-interactive .boat-tabs-nav li,
+  .spec-item,
+  .boat-features-list li,
+  .spec-icon,
+  .feature-icon {
+    transition: none;
+  }
+  
+  .boat-details-interactive .boat-tabs-nav li:hover,
+  .spec-item:hover,
+  .boat-features-list li:hover {
+    transform: none;
+  }
+  
+  .boat-details-interactive .tab-pane.active {
+    animation: none;
   }
 }
 
@@ -3963,4 +4239,1539 @@ button.cta:hover span:nth-child(2) {
   .hero {
     background: url('images/HeroMobile.webp') no-repeat center center/cover !important;
   }
+}
+
+/* --- TOURS SECTION (ibrida) --- */
+.tours-section {
+  padding: 4rem 0 2.5rem 0;
+  background: linear-gradient(120deg, #f8fbff 0%, #e3eafc 100%);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  margin-bottom: 2.5rem;
+}
+.tours-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #003366;
+  font-weight: 700;
+  margin-bottom: 2.2rem;
+  letter-spacing: 1px;
+}
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2.2rem 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.tour-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.22s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  min-height: 370px;
+}
+.tour-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(26,117,255,0.16);
+  transform: scale(1.04) translateY(-6px);
+}
+.tour-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 18px 18px 0 0;
+  transition: transform 0.3s;
+}
+.tour-card:hover .tour-img {
+  transform: scale(1.07);
+}
+.tour-info {
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  text-align: center;
+}
+.tour-info h3 {
+  font-size: 1.35rem;
+  color: #1a75ff;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.tour-info p {
+  color: #444;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+.tours-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.tours-cta-btn {
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 600;
+  padding: 1.1rem 2.7rem;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(26,117,255,0.13);
+  transition: background 0.3s, transform 0.2s;
+  border: none;
+  outline: none;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+.tours-cta-btn:hover {
+  background: linear-gradient(90deg, #003366 0%, #1a75ff 100%);
+  color: #fff;
+  transform: scale(1.06) translateY(-2px);
+}
+@media (max-width: 900px) {
+  .tours-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem 0;
+  }
+  .tour-card {
+    min-height: 320px;
+  }
+}
+
+/* --- TOURS SECTION ENHANCED --- */
+.tours-section.enhanced .tour-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  perspective: 600px;
+}
+.tours-section.enhanced .tour-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(.4,1.4,.6,1), filter 0.4s;
+  will-change: transform;
+}
+.tours-section.enhanced .tour-card:hover .tour-img {
+  transform: scale(1.09) rotateZ(-1.5deg) translateY(-6px);
+  filter: brightness(0.93) saturate(1.1);
+}
+.tours-section.enhanced .tour-img-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(0,51,102,0.13) 0%, rgba(26,117,255,0.18) 100%);
+  pointer-events: none;
+  border-radius: 18px 18px 0 0;
+  z-index: 2;
+  transition: background 0.4s;
+}
+.tours-section.enhanced .tour-card:hover .tour-img-overlay {
+  background: linear-gradient(120deg, rgba(0,51,102,0.22) 0%, rgba(26,117,255,0.25) 100%);
+}
+.tour-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  padding: 0.45em 1.2em;
+  border-radius: 16px;
+  font-size: 1.01rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(31,38,135,0.13);
+  letter-spacing: 0.5px;
+  animation: badgePop 0.7s cubic-bezier(.4,1.4,.6,1);
+}
+.badge-blue { background: linear-gradient(90deg, #1a75ff 0%, #003366 100%); }
+.badge-green { background: linear-gradient(90deg, #00c48c 0%, #1a75ff 100%); }
+.badge-gold { background: linear-gradient(90deg, #ffd700 0%, #ffb300 100%); color: #222; }
+@keyframes badgePop {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.tours-section.enhanced .tour-card {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13), 0 1.5px 0px #1a75ff11;
+  transition: box-shadow 0.32s cubic-bezier(.4,1.4,.6,1), transform 0.22s cubic-bezier(.4,1.4,.6,1);
+}
+.tours-section.enhanced .tour-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(26,117,255,0.18), 0 2.5px 0px #1a75ff22;
+  transform: scale(1.045) translateY(-10px) rotateZ(-0.5deg);
+}
+.tours-section.enhanced .tours-cta-btn.animated {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 600;
+  padding: 1.1rem 2.7rem;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(26,117,255,0.13);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  border: none;
+  outline: none;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  cursor: pointer;
+}
+.tours-section.enhanced .tours-cta-btn.animated::after {
+  content: '';
+  position: absolute;
+  left: -60%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.01) 100%);
+  transform: skewX(-18deg);
+  transition: left 0.5s cubic-bezier(.4,1.4,.6,1);
+  z-index: 1;
+}
+.tours-section.enhanced .tours-cta-btn.animated:hover::after {
+  left: 110%;
+}
+.tours-section.enhanced .tours-cta-btn.animated:hover {
+  background: linear-gradient(90deg, #003366 0%, #1a75ff 100%);
+  color: #fff;
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 8px 32px 0 rgba(26,117,255,0.18);
+}
+
+/* --- SWIPE RIGHT BUTTON ANIMATION (Animazione 18) --- */
+.tours-cta-btn.swipe-right {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s, box-shadow 0.2s;
+  z-index: 1;
+}
+.tours-cta-btn.swipe-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  transition: left 0.4s cubic-bezier(.4,1.4,.6,1);
+  z-index: 2;
+}
+.tours-cta-btn.swipe-right:hover::before {
+  left: 0;
+}
+.tours-cta-btn.swipe-right span {
+  position: relative;
+  z-index: 3;
+  transition: color 0.3s;
+}
+.tours-cta-btn.swipe-right:hover span {
+  color: #fff;
+}
+
+/* --- MODERN TOURS SECTION STYLES --- */
+.tours-section.modern {
+  position: relative;
+  padding: 6rem 0 4rem 0;
+  background: linear-gradient(135deg, #f8fbff 0%, #e3eafc 50%, #f0f7ff 100%);
+  border-radius: 32px;
+  box-shadow: 
+    0 20px 60px rgba(31, 38, 135, 0.08),
+    0 8px 32px rgba(26, 117, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  margin: 3rem 0 4rem 0;
+  overflow: hidden;
+}
+
+/* Background decorative blobs */
+.tours-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(26, 117, 255, 0.03) 0%, rgba(0, 51, 102, 0.02) 100%);
+  animation: float 20s ease-in-out infinite;
+}
+
+.bg-blob-1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  right: -150px;
+  animation-delay: 0s;
+}
+
+.bg-blob-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -7s;
+}
+
+.bg-blob-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: 10%;
+  animation-delay: -14s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(120deg); }
+  66% { transform: translateY(10px) rotate(240deg); }
+}
+
+/* Modern title */
+.tours-title.modern-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1a75ff 0%, #003366 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.tours-title.modern-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #1a75ff, #003366);
+  border-radius: 2px;
+}
+
+/* Modern grid */
+.tours-grid.modern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Modern card */
+.tour-card.modern-card {
+  padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.1),
+    0 4px 16px rgba(26, 117, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  min-height: 420px;
+  transform: translateY(0);
+}
+
+.tour-card.modern-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 24px 64px rgba(26, 117, 255, 0.15),
+    0 12px 32px rgba(31, 38, 135, 0.12),
+    0 0 0 1px rgba(26, 117, 255, 0.1);
+}
+
+/* Modern image wrapper */
+.tour-img-wrapper.modern-img-wrapper {
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+}
+
+/* Modern image */
+.tour-img.modern-img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+  /* border-radius: 24px 24px 0 0; */
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.tour-card.modern-card:hover .tour-img.modern-img {
+  /* Rimuovo lo zoom al passaggio del mouse */
+  transform: none;
+}
+
+/* Modern overlay */
+.tour-img-overlay.modern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 51, 102, 0.1) 0%, 
+    rgba(26, 117, 255, 0.15) 50%,
+    rgba(0, 51, 102, 0.08) 100%
+  );
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.tour-card.modern-card:hover .tour-img-overlay.modern-overlay {
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 51, 102, 0.2) 0%, 
+    rgba(26, 117, 255, 0.25) 50%,
+    rgba(0, 51, 102, 0.15) 100%
+  );
+}
+
+/* Modern badge */
+.tour-badge.modern-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  padding: 0.6em 1.4em;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 
+    0 4px 16px rgba(31, 38, 135, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  animation: badgeFloat 0.8s cubic-bezier(0.4, 1.4, 0.6, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes badgeFloat {
+  0% { 
+    transform: translateY(20px) scale(0.8); 
+    opacity: 0; 
+  }
+  80% { 
+    transform: translateY(-5px) scale(1.1); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.badge-blue { 
+  background: linear-gradient(135deg, #1a75ff 0%, #003366 100%); 
+}
+
+.badge-green { 
+  background: linear-gradient(135deg, #00c48c 0%, #1a75ff 100%); 
+}
+
+.badge-gold { 
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%); 
+  color: #222; 
+}
+
+/* Modern info */
+.tour-info.modern-info {
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  text-align: left;
+}
+
+/* Modern title in card */
+.tour-info.modern-info .modern-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a75ff;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+  letter-spacing: -0.3px;
+}
+
+.tour-card.modern-card:hover .tour-info.modern-info .modern-title {
+  color: #003366;
+}
+
+/* Modern description */
+.tour-info.modern-info .modern-desc {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
+/* Tour features */
+.tour-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.feature-tag {
+  background: linear-gradient(135deg, rgba(26, 117, 255, 0.1) 0%, rgba(0, 51, 102, 0.08) 100%);
+  color: #1a75ff;
+  padding: 0.4em 0.8em;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(26, 117, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tour-card.modern-card:hover .feature-tag {
+  background: linear-gradient(135deg, rgba(26, 117, 255, 0.15) 0%, rgba(0, 51, 102, 0.12) 100%);
+  transform: translateY(-2px);
+}
+
+/* Modern CTA wrapper */
+.tours-cta-wrapper.modern-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Modern CTA button */
+.tours-cta-btn.modern-cta-btn {
+  background: linear-gradient(135deg, #1a75ff 0%, #003366 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1.2rem 2.8rem;
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 
+    0 8px 32px rgba(26, 117, 255, 0.2),
+    0 4px 16px rgba(31, 38, 135, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  outline: none;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tours-cta-btn.modern-cta-btn:hover {
+  background: linear-gradient(135deg, #003366 0%, #1a75ff 100%);
+  color: #fff;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 16px 48px rgba(26, 117, 255, 0.25),
+    0 8px 24px rgba(31, 38, 135, 0.15);
+}
+
+.tours-cta-btn.modern-cta-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* Button text and icon */
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-icon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.tours-cta-btn.modern-cta-btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Ripple effect */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: 1;
+}
+
+.ripple-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .tours-grid.modern-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .tours-title.modern-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tours-section.modern {
+    padding: 4rem 0 3rem 0;
+    border-radius: 24px;
+    margin: 2rem 0 3rem 0;
+  }
+  
+  .tours-grid.modern-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .tours-title.modern-title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tour-card.modern-card {
+    min-height: 380px;
+  }
+  
+  .tour-img-wrapper.modern-img-wrapper {
+    height: 200px;
+  }
+  
+  .tour-info.modern-info {
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  }
+  
+  .tours-cta-btn.modern-cta-btn {
+    padding: 1rem 2.2rem;
+    font-size: 1rem;
+  }
+  
+  .bg-blob {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .tours-title.modern-title {
+    font-size: 2rem;
+  }
+  
+  .tour-card.modern-card {
+    min-height: 360px;
+  }
+  
+  .tour-img-wrapper.modern-img-wrapper {
+    height: 180px;
+  }
+  
+  .tour-badge.modern-badge {
+    top: 15px;
+    left: 15px;
+    padding: 0.5em 1.2em;
+    font-size: 0.8rem;
+  }
+  
+  .tour-features {
+    gap: 0.4rem;
+  }
+  
+  .feature-tag {
+    font-size: 0.8rem;
+    padding: 0.3em 0.7em;
+  }
+}
+
+/* Animation for entrance reveal */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tour-card.modern-card[data-aos="fade-up"] {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Smooth scrolling for better performance */
+.tours-section.modern {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+.tour-card.modern-card:focus-within {
+  outline: 2px solid #1a75ff;
+  outline-offset: 2px;
+}
+
+.tours-cta-btn.modern-cta-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .tour-card.modern-card,
+  .tour-img.modern-img,
+  .tour-img-overlay.modern-overlay,
+  .tours-cta-btn.modern-cta-btn,
+  .bg-blob {
+    animation: none;
+    transition: none;
+  }
+  
+  .tour-card.modern-card:hover {
+    transform: none;
+  }
+  
+  .tour-card.modern-card:hover .tour-img.modern-img {
+    transform: none;
+  }
+}
+
+/* --- MODERN SERVICES SECTION STYLES --- */
+.modern-services {
+  position: relative;
+  padding: 5rem 0 3rem 0;
+  background: linear-gradient(120deg, #f8fbff 0%, #e3eafc 100%);
+  border-radius: 32px;
+  box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.08);
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.services-bg-decoration {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.modern-services-title {
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-services-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1a75ff, #003366);
+  border-radius: 2px;
+}
+
+.modern-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-service-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10), 0 1.5px 0px #1a75ff11;
+  border: 1px solid rgba(255,255,255,0.18);
+  overflow: hidden;
+  transition: box-shadow 0.35s cubic-bezier(.4,1.4,.6,1), transform 0.32s cubic-bezier(.4,1.4,.6,1);
+  cursor: pointer;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.modern-service-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(26,117,255,0.18), 0 2.5px 0px #1a75ff22;
+  transform: scale(1.035) translateY(-8px);
+}
+
+.modern-service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem 0.5rem 2rem;
+  gap: 0.5rem;
+}
+
+.modern-service-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1a75ff;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.modern-service-card:hover .modern-service-title {
+  color: #003366;
+}
+
+.modern-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  background: linear-gradient(90deg, #e3eafc 0%, #f8fbff 100%);
+  color: #1a75ff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 0.45em 1.1em;
+  box-shadow: 0 2px 8px rgba(31,38,135,0.10);
+  border: 1px solid #e3eafc;
+  letter-spacing: 0.2px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  animation: badgePop 0.7s cubic-bezier(.4,1.4,.6,1);
+}
+
+.modern-badge:hover, .modern-badge:focus {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 4px 16px #1a75ff33, 0 0 0 4px #1a75ff22;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  color: #fff;
+  outline: none;
+}
+
+.badge-icon {
+  font-size: 1.1em;
+  margin-right: 0.2em;
+  filter: drop-shadow(0 1px 2px #1a75ff22);
+}
+
+.badge-night { background: linear-gradient(90deg, #e3eafc 0%, #dbeafe 100%); }
+.badge-food { background: linear-gradient(90deg, #e3eafc 0%, #fffbe6 100%); }
+.badge-sunset { background: linear-gradient(90deg, #e3eafc 0%, #ffe3e3 100%); }
+
+@keyframes badgePop {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.modern-service-body {
+  padding: 0 2rem 2rem 2rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modern-service-desc {
+  color: #444;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+  font-weight: 500;
+}
+
+.modern-service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modern-service-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.04rem;
+  color: #003366;
+  font-weight: 500;
+  background: rgba(26,117,255,0.04);
+  border-radius: 10px;
+  padding: 0.45em 0.9em;
+  transition: background 0.3s, color 0.3s;
+  gap: 0.7em;
+}
+
+.modern-service-card:hover .modern-service-list li {
+  background: rgba(26,117,255,0.09);
+  color: #1a75ff;
+}
+
+.list-icon {
+  font-size: 1.18em;
+  margin-right: 0.5em;
+  transition: transform 0.3s, color 0.3s;
+  color: #1a75ff;
+  filter: drop-shadow(0 1px 2px #1a75ff22);
+}
+
+.modern-service-card:hover .list-icon {
+  color: #003366;
+  transform: scale(1.15) rotate(-8deg);
+}
+
+.modern-service-btn {
+  margin-top: 1.1rem;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 18px rgba(26,117,255,0.13);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.2px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-service-btn:hover, .modern-service-btn:focus {
+  background: linear-gradient(90deg, #003366 0%, #1a75ff 100%);
+  color: #fff;
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 8px 32px 0 rgba(26,117,255,0.18);
+  outline: none;
+}
+
+.modern-service-btn:active {
+  transform: scale(0.97);
+}
+
+/* Ripple effect (già presente per .ripple-btn) */
+
+@media (max-width: 1024px) {
+  .modern-services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.7rem;
+  }
+  .modern-services-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-services {
+    padding: 2.5rem 0 2rem 0;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+  .modern-services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .modern-services-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+  .modern-service-card {
+    min-height: 320px;
+  }
+  .modern-service-header, .modern-service-body {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-services-title {
+    font-size: 1.2rem;
+  }
+  .modern-service-card {
+    min-height: 260px;
+  }
+  .modern-service-header, .modern-service-body {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+  .modern-badge {
+    font-size: 0.85rem;
+    padding: 0.3em 0.7em;
+  }
+}
+
+/* Entrance reveal animation */
+@keyframes fadeInUpService {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modern-service-card[data-aos="fade-up"] {
+  animation: fadeInUpService 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Focus states for accessibility */
+.modern-service-card:focus-within {
+  outline: 2px solid #1a75ff;
+  outline-offset: 2px;
+}
+
+.modern-service-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modern-service-card,
+  .modern-badge,
+  .modern-service-btn,
+  .list-icon {
+    transition: none !important;
+    animation: none !important;
+  }
+  .modern-service-card:hover {
+    transform: none !important;
+  }
+  .modern-service-card[data-aos="fade-up"] {
+    animation: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .modern-service-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.2rem 2rem 0 2rem;
+    gap: 0.7rem;
+  }
+  .modern-service-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    color: #1a75ff;
+    line-height: 1.1;
+  }
+  .modern-badge {
+    display: inline-flex;
+    justify-content: center;
+    width: auto;
+    margin: 0 auto 0.7em auto;
+    font-size: 1.08rem;
+    font-weight: 700;
+    padding: 0.5em 1.3em;
+  }
+  .modern-service-body {
+    padding-top: 0.5rem;
+    padding-bottom: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modern-service-desc {
+    text-align: center;
+    font-size: 1.13rem;
+    margin-bottom: 1.3rem;
+    margin-top: 0.2rem;
+    max-width: 90%;
+  }
+  .modern-service-list {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    gap: 0.7rem;
+  }
+  .modern-service-list li {
+    font-size: 1.08rem;
+    justify-content: center;
+    padding: 0.55em 1.2em;
+  }
+}
+
+/* --- MODERN HERO INTRO STYLES --- */
+.modern-hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: clamp(2.5rem, 7vw, 5.5rem);
+  text-align: center;
+  background: none;
+  margin-bottom: 0.5rem;
+}
+
+.modern-hero-title {
+  font-family: 'Inter', 'Manrope', 'Poppins', 'Montserrat', Arial, sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin-bottom: 1.1rem;
+  background: linear-gradient(90deg, #1a75ff 10%, #3ec6ff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-wave-icon {
+  display: inline-block;
+  font-size: 1.2em;
+  margin-left: 0.18em;
+  vertical-align: -0.1em;
+  animation: waveFloat 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 2px 6px #1a75ff33);
+}
+
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+}
+
+.modern-hero-subtitle {
+  font-family: 'Inter', 'Manrope', 'Poppins', 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  font-weight: 500;
+  color: #222e3a;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  margin-bottom: 0.2rem;
+}
+
+.modern-hero-link {
+  color: #1a75ff;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  background: linear-gradient(90deg, #1a75ff 0%, #3ec6ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.3s, color 0.3s;
+}
+
+.modern-hero-link::after {
+  content: '';
+  display: block;
+  height: 2.5px;
+  width: 100%;
+  background: linear-gradient(90deg, #1a75ff 0%, #3ec6ff 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(.4,1.4,.6,1);
+  transform-origin: left;
+  margin-top: 2px;
+}
+
+.modern-hero-link:hover::after, .modern-hero-link:focus::after {
+  transform: scaleX(1);
+}
+
+.modern-hero-link:focus {
+  outline: 2px solid #1a75ff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .modern-hero-intro {
+    padding-block: 2rem 1.2rem;
+  }
+  .modern-hero-title {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+    margin-bottom: 0.7rem;
+  }
+  .modern-hero-subtitle {
+    font-size: 1rem;
+    max-width: 95vw;
+  }
+}
+
+/* --- MODERN HERO VIDEO TITLE --- */
+.modern-hero-video-title {
+  font-family: 'Inter', 'Manrope', 'Poppins', 'Montserrat', Arial, sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin: 0 auto 2.1rem auto;
+  background: linear-gradient(90deg, #1a75ff 10%, #3ec6ff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  display: block;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .modern-hero-video-title {
+    font-size: clamp(1.1rem, 6vw, 1.5rem);
+    margin-bottom: 1.1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+}
+
+/* Miglioramenti aggiuntivi per la sezione Azimut 40 */
+.boat-details-interactive {
+  position: relative;
+  overflow: visible;
+}
+
+.boat-details-interactive::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(135deg, rgba(26, 117, 255, 0.03) 0%, rgba(0, 51, 102, 0.02) 100%);
+  border-radius: 24px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.boat-details-interactive:hover::before {
+  opacity: 1;
+}
+
+/* Effetti hover più sofisticati per le tabs */
+.boat-details-interactive .boat-tabs-nav li {
+  position: relative;
+  overflow: hidden;
+}
+
+.boat-details-interactive .boat-tabs-nav li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(26, 117, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.boat-details-interactive .boat-tabs-nav li:hover::before {
+  left: 100%;
+}
+
+/* Miglioramenti per le icone delle tabs */
+.boat-details-interactive .boat-tabs-nav li i {
+  position: relative;
+  z-index: 2;
+}
+
+.boat-details-interactive .boat-tabs-nav li.active i {
+  animation: iconPulse 0.6s ease-out;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Effetti per le specifiche tecniche */
+.spec-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a75ff 0%, #003366 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.spec-item:hover::before {
+  transform: scaleX(1);
+}
+
+.spec-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-icon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.spec-item:hover .spec-icon::after {
+  transform: scale(1);
+}
+
+/* Effetti per le features */
+.boat-features-list li {
+  position: relative;
+  overflow: hidden;
+}
+
+.boat-features-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 196, 140, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.boat-features-list li:hover::before {
+  left: 100%;
+}
+
+.feature-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-icon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.boat-features-list li:hover .feature-icon::after {
+  transform: scale(1);
+}
+
+/* Animazioni per il contenuto delle tab */
+.boat-details-interactive .tab-pane.active {
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effetti per le immagini della galleria */
+.boat-image {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.boat-image:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+/* Miglioramenti per i controlli dello swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #2563eb;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+  cursor: pointer;
+  padding: 0;
+}
+.swiper-button-next { right: 20px; }
+.swiper-button-prev { left: 20px; }
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.18);
+  transform: translateY(-50%) scale(1.13);
+}
+.swiper-button-next i, .swiper-button-prev i {
+  pointer-events: none;
+  font-size: 1.7rem;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+  display: none !important;
+}
+
+.swiper-pagination-bullet {
+  background: #1a75ff;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .boat-details-interactive::before {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+  
+  .boat-intro-title::after {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .spec-item::before,
+  .boat-features-list li::before {
+    display: none;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Accessibilità migliorata */
+.boat-details-interactive .boat-tabs-nav li:focus-visible {
+  outline: 3px solid #1a75ff;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.spec-item:focus-within,
+.boat-features-list li:focus-within {
+  outline: 2px solid #1a75ff;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .boat-details-interactive .boat-tabs-nav li {
+    border: 2px solid #003366;
+  }
+  
+  .boat-details-interactive .boat-tabs-nav li.active {
+    border-color: #1a75ff;
+    background-color: #eaf4ff;
+  }
+  
+  .spec-item,
+  .boat-features-list li {
+    border: 2px solid #003366;
+  }
+}
+
+.spec-icon i, .feature-icon i {
+  color: #fff !important;
+  font-size: 1.5em !important;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.10));
+}
+
+.tours-section.enhanced .tour-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.7s cubic-bezier(.4,1.4,.6,1), filter 0.4s;
+  will-change: transform;
 }
